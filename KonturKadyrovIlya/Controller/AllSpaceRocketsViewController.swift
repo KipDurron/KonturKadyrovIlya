@@ -44,10 +44,10 @@ class AllSpaceRocketsViewController: UIViewController {
         pageController.view.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            pageController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            pageController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            pageController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            pageController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pageController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            pageController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            pageController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            pageController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
         
         
@@ -59,8 +59,6 @@ class AllSpaceRocketsViewController: UIViewController {
         pageController.didMove(toParent: self)
         
         pageController.view.backgroundColor = Constants.pageControlColor
-        
-//        pageController.pagcontrol
         
         self.pageController = pageController
     }
