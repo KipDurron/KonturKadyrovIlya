@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5B9D1385-41C5-4986-8765-8699A13261B8"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0E3C64A-7730-459E-97ED-28BA671F823D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KonturKadyrovIlya/View/SpaceRocketView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D86C88F3-C6B9-4F62-96C9-5FB48B1DCD55"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KonturKadyrovIlya/View/LabelButtonView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "updateData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D86C88F3-C6B9-4F62-96C9-5FB48B1DCD55 - 798fb7304bcf3ef1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KonturKadyrovIlya.LabelButtonView.updateData() -&gt; ()"
+                  moduleName = "KonturKadyrovIlya"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kipdurron/XCodeProjects/For%20job/KonturKadyrovIlya/KonturKadyrovIlya/View/LabelButtonView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "295">
+               </Location>
+               <Location
+                  uuid = "D86C88F3-C6B9-4F62-96C9-5FB48B1DCD55 - 798fb7304bcf3ef1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KonturKadyrovIlya.LabelButtonView.updateData() -&gt; ()"
+                  moduleName = "KonturKadyrovIlya"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kipdurron/XCodeProjects/For%20job/KonturKadyrovIlya/KonturKadyrovIlya/View/LabelButtonView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "330">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -7,23 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BDF5D720CDEAC9FB1E89F74 /* Pods_KonturKadyrovIlya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E21861BFB712447738645B5 /* Pods_KonturKadyrovIlya.framework */; };
 		ECB899BB28061761004B82A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899BA28061761004B82A4 /* AppDelegate.swift */; };
 		ECB899BD28061761004B82A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899BC28061761004B82A4 /* SceneDelegate.swift */; };
-		ECB899BF28061761004B82A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899BE28061761004B82A4 /* ViewController.swift */; };
-		ECB899C228061761004B82A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB899C028061761004B82A4 /* Main.storyboard */; };
+		ECB899BF28061761004B82A4 /* CurrentSpaceRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899BE28061761004B82A4 /* CurrentSpaceRocketViewController.swift */; };
 		ECB899C428061765004B82A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB899C328061765004B82A4 /* Assets.xcassets */; };
 		ECB899C728061765004B82A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB899C528061765004B82A4 /* LaunchScreen.storyboard */; };
+		ECB899D02806DC21004B82A4 /* SpaceRocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899CF2806DC21004B82A4 /* SpaceRocketView.swift */; };
+		ECB899D22806EF74004B82A4 /* LabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899D12806EF74004B82A4 /* LabelButtonView.swift */; };
+		ECB899D52806F215004B82A4 /* LabelButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899D42806F215004B82A4 /* LabelButtonViewModel.swift */; };
+		ECB899D7280705DB004B82A4 /* ParameterRocketCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899D6280705DB004B82A4 /* ParameterRocketCollection.swift */; };
+		ECB899D9280707B7004B82A4 /* ParameterRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899D8280707B7004B82A4 /* ParameterRocketCell.swift */; };
+		ECB899DC280710FA004B82A4 /* SpaceRocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899DB280710FA004B82A4 /* SpaceRocketService.swift */; };
+		ECB899DF280713A5004B82A4 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899DE280713A5004B82A4 /* RequestResult.swift */; };
+		ECB899E228071507004B82A4 /* SpaceRocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899E128071507004B82A4 /* SpaceRocketModel.swift */; };
+		ECB899E4280715A3004B82A4 /* LengthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899E3280715A3004B82A4 /* LengthType.swift */; };
+		ECB899E62807163B004B82A4 /* Mass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899E52807163B004B82A4 /* Mass.swift */; };
+		ECB899E8280716C3004B82A4 /* SpaceRocketStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899E7280716C3004B82A4 /* SpaceRocketStage.swift */; };
+		ECB899EA2807180C004B82A4 /* PayloadWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899E92807180C004B82A4 /* PayloadWeight.swift */; };
+		ECB899ED280744C7004B82A4 /* AllSpaceRocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899EC280744C7004B82A4 /* AllSpaceRocketsViewController.swift */; };
+		ECB899F02807589D004B82A4 /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899EF2807589D004B82A4 /* ExUIImage.swift */; };
+		ECB899F228076360004B82A4 /* ExInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899F128076360004B82A4 /* ExInt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E21861BFB712447738645B5 /* Pods_KonturKadyrovIlya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KonturKadyrovIlya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3579BAC234128039FC81264F /* Pods-KonturKadyrovIlya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonturKadyrovIlya.debug.xcconfig"; path = "Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya.debug.xcconfig"; sourceTree = "<group>"; };
 		ECB899B728061761004B82A4 /* KonturKadyrovIlya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KonturKadyrovIlya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB899BA28061761004B82A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB899BC28061761004B82A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECB899BE28061761004B82A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ECB899C128061761004B82A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECB899BE28061761004B82A4 /* CurrentSpaceRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSpaceRocketViewController.swift; sourceTree = "<group>"; };
 		ECB899C328061765004B82A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECB899C628061765004B82A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECB899C828061765004B82A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECB899CF2806DC21004B82A4 /* SpaceRocketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRocketView.swift; sourceTree = "<group>"; };
+		ECB899D12806EF74004B82A4 /* LabelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonView.swift; sourceTree = "<group>"; };
+		ECB899D42806F215004B82A4 /* LabelButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonViewModel.swift; sourceTree = "<group>"; };
+		ECB899D6280705DB004B82A4 /* ParameterRocketCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterRocketCollection.swift; sourceTree = "<group>"; };
+		ECB899D8280707B7004B82A4 /* ParameterRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterRocketCell.swift; sourceTree = "<group>"; };
+		ECB899DB280710FA004B82A4 /* SpaceRocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRocketService.swift; sourceTree = "<group>"; };
+		ECB899DE280713A5004B82A4 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		ECB899E128071507004B82A4 /* SpaceRocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRocketModel.swift; sourceTree = "<group>"; };
+		ECB899E3280715A3004B82A4 /* LengthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthType.swift; sourceTree = "<group>"; };
+		ECB899E52807163B004B82A4 /* Mass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mass.swift; sourceTree = "<group>"; };
+		ECB899E7280716C3004B82A4 /* SpaceRocketStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRocketStage.swift; sourceTree = "<group>"; };
+		ECB899E92807180C004B82A4 /* PayloadWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadWeight.swift; sourceTree = "<group>"; };
+		ECB899EC280744C7004B82A4 /* AllSpaceRocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSpaceRocketsViewController.swift; sourceTree = "<group>"; };
+		ECB899EF2807589D004B82A4 /* ExUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
+		ECB899F128076360004B82A4 /* ExInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExInt.swift; sourceTree = "<group>"; };
+		FF4DC75BB1EEC9E5D5B2F6D8 /* Pods-KonturKadyrovIlya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonturKadyrovIlya.release.xcconfig"; path = "Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +63,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDF5D720CDEAC9FB1E89F74 /* Pods_KonturKadyrovIlya.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52B2151107F260CFAF8AA6B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3579BAC234128039FC81264F /* Pods-KonturKadyrovIlya.debug.xcconfig */,
+				FF4DC75BB1EEC9E5D5B2F6D8 /* Pods-KonturKadyrovIlya.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D9E0237BD7C556C6BC48C895 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E21861BFB712447738645B5 /* Pods_KonturKadyrovIlya.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ECB899AE28061761004B82A4 = {
 			isa = PBXGroup;
 			children = (
 				ECB899B928061761004B82A4 /* KonturKadyrovIlya */,
 				ECB899B828061761004B82A4 /* Products */,
+				52B2151107F260CFAF8AA6B9 /* Pods */,
+				D9E0237BD7C556C6BC48C895 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +108,85 @@
 		ECB899B928061761004B82A4 /* KonturKadyrovIlya */ = {
 			isa = PBXGroup;
 			children = (
+				ECB899EE2807589D004B82A4 /* Extention */,
+				ECB899EB2807284D004B82A4 /* Controller */,
+				ECB899E0280714D6004B82A4 /* Model */,
+				ECB899DD28071391004B82A4 /* Utils */,
+				ECB899DA280710E3004B82A4 /* Service */,
+				ECB899D32806EFF8004B82A4 /* ViewModel */,
+				ECB899CE2806DBF7004B82A4 /* View */,
 				ECB899BA28061761004B82A4 /* AppDelegate.swift */,
 				ECB899BC28061761004B82A4 /* SceneDelegate.swift */,
-				ECB899BE28061761004B82A4 /* ViewController.swift */,
-				ECB899C028061761004B82A4 /* Main.storyboard */,
 				ECB899C328061765004B82A4 /* Assets.xcassets */,
 				ECB899C528061765004B82A4 /* LaunchScreen.storyboard */,
 				ECB899C828061765004B82A4 /* Info.plist */,
 			);
 			path = KonturKadyrovIlya;
+			sourceTree = "<group>";
+		};
+		ECB899CE2806DBF7004B82A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899CF2806DC21004B82A4 /* SpaceRocketView.swift */,
+				ECB899D12806EF74004B82A4 /* LabelButtonView.swift */,
+				ECB899D6280705DB004B82A4 /* ParameterRocketCollection.swift */,
+				ECB899D8280707B7004B82A4 /* ParameterRocketCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECB899D32806EFF8004B82A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899D42806F215004B82A4 /* LabelButtonViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ECB899DA280710E3004B82A4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899DB280710FA004B82A4 /* SpaceRocketService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		ECB899DD28071391004B82A4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899DE280713A5004B82A4 /* RequestResult.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ECB899E0280714D6004B82A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899E128071507004B82A4 /* SpaceRocketModel.swift */,
+				ECB899E3280715A3004B82A4 /* LengthType.swift */,
+				ECB899E52807163B004B82A4 /* Mass.swift */,
+				ECB899E7280716C3004B82A4 /* SpaceRocketStage.swift */,
+				ECB899E92807180C004B82A4 /* PayloadWeight.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ECB899EB2807284D004B82A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899BE28061761004B82A4 /* CurrentSpaceRocketViewController.swift */,
+				ECB899EC280744C7004B82A4 /* AllSpaceRocketsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ECB899EE2807589D004B82A4 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899EF2807589D004B82A4 /* ExUIImage.swift */,
+				ECB899F128076360004B82A4 /* ExInt.swift */,
+			);
+			path = Extention;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECB899CB28061765004B82A4 /* Build configuration list for PBXNativeTarget "KonturKadyrovIlya" */;
 			buildPhases = (
+				0744A1CB8CC776123E131BF6 /* [CP] Check Pods Manifest.lock */,
 				ECB899B328061761004B82A4 /* Sources */,
 				ECB899B428061761004B82A4 /* Frameworks */,
 				ECB899B528061761004B82A4 /* Resources */,
+				DA69B1364DCC869A052A62A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +251,82 @@
 			files = (
 				ECB899C728061765004B82A4 /* LaunchScreen.storyboard in Resources */,
 				ECB899C428061765004B82A4 /* Assets.xcassets in Resources */,
-				ECB899C228061761004B82A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0744A1CB8CC776123E131BF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KonturKadyrovIlya-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA69B1364DCC869A052A62A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECB899B328061761004B82A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECB899BF28061761004B82A4 /* ViewController.swift in Sources */,
+				ECB899DF280713A5004B82A4 /* RequestResult.swift in Sources */,
+				ECB899BF28061761004B82A4 /* CurrentSpaceRocketViewController.swift in Sources */,
+				ECB899D52806F215004B82A4 /* LabelButtonViewModel.swift in Sources */,
+				ECB899E228071507004B82A4 /* SpaceRocketModel.swift in Sources */,
+				ECB899EA2807180C004B82A4 /* PayloadWeight.swift in Sources */,
+				ECB899F02807589D004B82A4 /* ExUIImage.swift in Sources */,
+				ECB899ED280744C7004B82A4 /* AllSpaceRocketsViewController.swift in Sources */,
 				ECB899BB28061761004B82A4 /* AppDelegate.swift in Sources */,
+				ECB899E62807163B004B82A4 /* Mass.swift in Sources */,
+				ECB899D7280705DB004B82A4 /* ParameterRocketCollection.swift in Sources */,
+				ECB899D22806EF74004B82A4 /* LabelButtonView.swift in Sources */,
+				ECB899D9280707B7004B82A4 /* ParameterRocketCell.swift in Sources */,
+				ECB899DC280710FA004B82A4 /* SpaceRocketService.swift in Sources */,
 				ECB899BD28061761004B82A4 /* SceneDelegate.swift in Sources */,
+				ECB899E8280716C3004B82A4 /* SpaceRocketStage.swift in Sources */,
+				ECB899D02806DC21004B82A4 /* SpaceRocketView.swift in Sources */,
+				ECB899F228076360004B82A4 /* ExInt.swift in Sources */,
+				ECB899E4280715A3004B82A4 /* LengthType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ECB899C028061761004B82A4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECB899C128061761004B82A4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ECB899C528061765004B82A4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +454,7 @@
 		};
 		ECB899CC28061765004B82A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3579BAC234128039FC81264F /* Pods-KonturKadyrovIlya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,7 +465,6 @@
 				INFOPLIST_FILE = KonturKadyrovIlya/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +482,7 @@
 		};
 		ECB899CD28061765004B82A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF4DC75BB1EEC9E5D5B2F6D8 /* Pods-KonturKadyrovIlya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,7 +493,6 @@
 				INFOPLIST_FILE = KonturKadyrovIlya/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
