@@ -7,7 +7,18 @@
 
 import UIKit
 
-class LaunchesRocketViewController: UICollectionViewController {
+class LaunchesRocketViewController: UIViewController {
+    
+    var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(LaunchRocketCell.self, forCellWithReuseIdentifier: "\(LaunchRocketCell.self)")
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .black
+        return collectionView
+    }()
     
     private var rocketId: String
     private var rocketName: String
@@ -19,7 +30,19 @@ class LaunchesRocketViewController: UICollectionViewController {
         self.rocketName = rocketName
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        super.init(collectionViewLayout: flowLayout)
+        super.init(nibName: nil, bundle: nil)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    private func setupUI() {
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     required init?(coder: NSCoder) {
@@ -28,14 +51,17 @@ class LaunchesRocketViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .black
-        setupNavigationBar()
-        collectionView.register(LaunchRocketCell.self, forCellWithReuseIdentifier: "\(LaunchRocketCell.self)")
+        setupUI()
         loadLaunches()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
     private func setupNavigationBar() {
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
         title = rocketName
     }
     
@@ -52,12 +78,14 @@ class LaunchesRocketViewController: UICollectionViewController {
             
         }
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+}
+
+extension LaunchesRocketViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         launches.count
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(LaunchRocketCell.self)", for: indexPath) as! LaunchRocketCell
         let cuurentLaunch = launches[indexPath.item]
         cell.setData(name: cuurentLaunch.name,
@@ -69,13 +97,13 @@ class LaunchesRocketViewController: UICollectionViewController {
 
 extension LaunchesRocketViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - (Constants.baseInse * 2), height: Constants.heightCell)
+        return CGSize(width: collectionView.safeAreaLayoutGuide.layoutFrame.width - (Constants.baseInse * 2), height: Constants.heightCell)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets.init(top: Constants.insetForSectionTop, left: Constants.insetForSectionLeft, bottom: Constants.insetForSectionBottom, right: Constants.insetForSectionRight)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         Constants.lineSpacing
     }

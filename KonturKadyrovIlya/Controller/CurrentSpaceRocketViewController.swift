@@ -54,7 +54,7 @@ class CurrentSpaceRocketViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 
