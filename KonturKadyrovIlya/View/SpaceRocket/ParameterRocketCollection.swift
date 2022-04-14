@@ -85,10 +85,6 @@ class ParameterRocketCollection: UIView {
 
 extension ParameterRocketCollection: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         parameterArray.count
     }

@@ -41,7 +41,8 @@ class LeftRightLabelView: UIView {
             rightLabel.leadingAnchor.constraint(greaterThanOrEqualTo: leftLabel.trailingAnchor,
                                                constant: Constants.minRightInsetLabel),
             rightLabel.bottomAnchor.constraint(equalTo: leftLabel.bottomAnchor),
-            rightLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: Constants.multiplierWidth)
+            rightLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: Constants.multiplierWidth),
+            rightLabel.heightAnchor.constraint(lessThanOrEqualToConstant: Constants.maxHeightRightlabel)
         ])
     }
     
@@ -62,5 +63,6 @@ private extension LeftRightLabelView {
     enum Constants {
         static let minRightInsetLabel: CGFloat = 19
         static let multiplierWidth: CGFloat = 0.5
+        static let maxHeightRightlabel: CGFloat = 50
     }
 }

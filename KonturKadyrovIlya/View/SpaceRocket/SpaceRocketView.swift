@@ -9,27 +9,27 @@ import UIKit
 
 class SpaceRocketView: UIView {
     
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     
-    let wrapperView: UIView = {
+    private let wrapperView: UIView = {
         let wrapperView = UIView()
         wrapperView.translatesAutoresizingMaskIntoConstraints = false
         return wrapperView
     }()
     
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .lightGray
         return imageView
     }()
     
-    let contentView: UIView = {
+    private let contentView: UIView = {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = .black
@@ -38,29 +38,41 @@ class SpaceRocketView: UIView {
         return contentView
     }()
     
-    let titleView: LabelButtonView = {
+    private let titleView: LabelButtonView = {
         let titleView = LabelButtonView()
         titleView.translatesAutoresizingMaskIntoConstraints = false
         return titleView
     }()
     
-    let parameterCollectionView: ParameterRocketCollection = {
+    private let parameterCollectionView: ParameterRocketCollection = {
         let parameterRocketCollection = ParameterRocketCollection()
         parameterRocketCollection.translatesAutoresizingMaskIntoConstraints = false
         return parameterRocketCollection
     }()
     
-    let commonInformationRocketView: CommonInformationRocketView = {
+    private let commonInformationRocketView: CommonInformationRocketView = {
         let commonInformationRocketView = CommonInformationRocketView()
         commonInformationRocketView.translatesAutoresizingMaskIntoConstraints = false
         return commonInformationRocketView
     }()
     
+    private let viewLaunchesButton: UIButton = {
+        let viewLaunchesButton = UIButton()
+        viewLaunchesButton.translatesAutoresizingMaskIntoConstraints = false
+        viewLaunchesButton.titleLabel?.font = .boldSystemFont(ofSize: Constants.viewLaunchesButtonFontSize)
+        viewLaunchesButton.tintColor = .white
+        viewLaunchesButton.backgroundColor = Constants.viewLaunchesButtonBackgroundColor
+        viewLaunchesButton.layer.cornerRadius = Constants.viewLaunchesButtonCornerRadius
+        viewLaunchesButton.setTitle(Constants.viewLaunchesButtonBottomTitle, for: .normal)
+        return viewLaunchesButton
+    }()
     
+    private var viewLaunchesButtonAction: (()->Void)?
     
     init() {
         super.init(frame: .zero)
         setupUI()
+        setupButton()
     }
     
     required init?(coder: NSCoder) {
@@ -79,6 +91,18 @@ class SpaceRocketView: UIView {
                                                costPerLaunch: model.costPerLaunch,
                                                firstStage: model.firstStage,
                                                secondStage: model.secondStage)
+    }
+    
+    func setupViewLaunchesButtonAction(action: @escaping (()->Void)) {
+        viewLaunchesButtonAction = action
+    }
+    
+    private func setupButton() {
+        viewLaunchesButton.addTarget(self, action: #selector(viewLaunchesButtonActionCall), for: .touchUpInside)
+    }
+    
+    @objc private func viewLaunchesButtonActionCall() {
+        viewLaunchesButtonAction?()
     }
     
     private func updateTitleView(name: String) {
@@ -139,22 +163,33 @@ class SpaceRocketView: UIView {
         contentView.addSubview(titleView)
         contentView.addSubview(parameterCollectionView)
         contentView.addSubview(commonInformationRocketView)
+        contentView.addSubview(viewLaunchesButton)
         
         NSLayoutConstraint.activate([
             titleView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.titleViewTopInset),
             titleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.titleViewRightInset),
             titleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.titleViewRightInset),
             
+            
             parameterCollectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: Constants.parameterCollectionViewTopInset),
             parameterCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             parameterCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             parameterCollectionView.heightAnchor.constraint(equalToConstant: Constants.sizeCollectionParameter),
             
+            
             commonInformationRocketView.topAnchor.constraint(equalTo: parameterCollectionView.bottomAnchor,
-                                             constant: Constants.commonInformationTopInset),
+                                                             constant: Constants.commonInformationTopInset),
             commonInformationRocketView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.commonInformationLeftRightInset),
             commonInformationRocketView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.commonInformationLeftRightInset),
-            commonInformationRocketView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+            
+            
+            
+            viewLaunchesButton.heightAnchor.constraint(equalToConstant: Constants.viewLaunchesButtonHeight),
+            viewLaunchesButton.topAnchor.constraint(equalTo: commonInformationRocketView.bottomAnchor,
+                                                    constant: Constants.viewLaunchesButtonTopInset),
+            viewLaunchesButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.viewLaunchesButtonLeftRightInset),
+            viewLaunchesButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.viewLaunchesButtonLeftRightInset),
+            viewLaunchesButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.viewLaunchesButtonBottomInset)
             
             
             
@@ -189,5 +224,15 @@ private extension SpaceRocketView {
         
         static let commonInformationTopInset: CGFloat = 40
         static let commonInformationLeftRightInset: CGFloat = 32
+        
+        static let viewLaunchesButtonFontSize: CGFloat = 18
+        static let viewLaunchesButtonBackgroundColor = UIColor(red: 0.129, green: 0.129, blue: 0.129, alpha: 1)
+        static let viewLaunchesButtonCornerRadius: CGFloat = 12
+        
+        static let viewLaunchesButtonTopInset: CGFloat = 40
+        static let viewLaunchesButtonLeftRightInset: CGFloat = 32
+        static let viewLaunchesButtonHeight: CGFloat = 56
+        static let viewLaunchesButtonBottomInset: CGFloat = 90
+        static let viewLaunchesButtonBottomTitle = "Посмотреть запуски"
     }
 }

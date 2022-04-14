@@ -18,6 +18,29 @@ class AllSpaceRocketsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllSpaceRockets()
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: Constants.titleBackButtonNavBar, style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .white
+        
+        let titleTextAttributes: [NSAttributedString.Key : Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.boldSystemFont(ofSize: Constants.sizeFontTitle)
+        ]
+        
+        if #available(iOS 15.0, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.backgroundColor = .black
+            navigationBarAppearance.titleTextAttributes = titleTextAttributes
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        } else {
+            navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+            navigationController?.navigationBar.barTintColor = .black
+        }
     }
     
     private func loadAllSpaceRockets() {
@@ -120,5 +143,7 @@ extension AllSpaceRocketsViewController: UIPageViewControllerDataSource, UIPageV
 private extension AllSpaceRocketsViewController {
     enum Constants {
         static let pageControlColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1)
+        static let titleBackButtonNavBar = "Назад"
+        static let sizeFontTitle: CGFloat = 16
     }
 }

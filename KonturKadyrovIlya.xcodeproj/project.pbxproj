@@ -33,6 +33,11 @@
 		ECB899FA2808223D004B82A4 /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899F92808223D004B82A4 /* TitleLabelView.swift */; };
 		ECB899FC28082866004B82A4 /* ExDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FB28082866004B82A4 /* ExDouble.swift */; };
 		ECB899FE28083B94004B82A4 /* SpaceRocketStageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FD28083B94004B82A4 /* SpaceRocketStageInfoView.swift */; };
+		ECB89A00280866BB004B82A4 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FF280866BB004B82A4 /* LaunchModel.swift */; };
+		ECB89A0228086745004B82A4 /* ResponseLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB89A0128086745004B82A4 /* ResponseLaunches.swift */; };
+		ECF6C4412808700D008A79C4 /* LaunchRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C4402808700D008A79C4 /* LaunchRocketCell.swift */; };
+		ECF6C44328087029008A79C4 /* LaunchesRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */; };
+		ECF6C44528088C0D008A79C4 /* CompositeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +70,11 @@
 		ECB899F92808223D004B82A4 /* TitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
 		ECB899FB28082866004B82A4 /* ExDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDouble.swift; sourceTree = "<group>"; };
 		ECB899FD28083B94004B82A4 /* SpaceRocketStageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRocketStageInfoView.swift; sourceTree = "<group>"; };
+		ECB899FF280866BB004B82A4 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
+		ECB89A0128086745004B82A4 /* ResponseLaunches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseLaunches.swift; sourceTree = "<group>"; };
+		ECF6C4402808700D008A79C4 /* LaunchRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRocketCell.swift; sourceTree = "<group>"; };
+		ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesRocketViewController.swift; sourceTree = "<group>"; };
+		ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeImageView.swift; sourceTree = "<group>"; };
 		FF4DC75BB1EEC9E5D5B2F6D8 /* Pods-KonturKadyrovIlya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonturKadyrovIlya.release.xcconfig"; path = "Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +147,7 @@
 		ECB899CE2806DBF7004B82A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECF6C43F28086FC9008A79C4 /* LaunchRocket */,
 				ECB899F428081BB9004B82A4 /* Common */,
 				ECB899F328081BA6004B82A4 /* SpaceRocket */,
 			);
@@ -175,6 +186,8 @@
 				ECB899E52807163B004B82A4 /* Mass.swift */,
 				ECB899E7280716C3004B82A4 /* SpaceRocketStage.swift */,
 				ECB899E92807180C004B82A4 /* PayloadWeight.swift */,
+				ECB899FF280866BB004B82A4 /* LaunchModel.swift */,
+				ECB89A0128086745004B82A4 /* ResponseLaunches.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +197,7 @@
 			children = (
 				ECB899BE28061761004B82A4 /* CurrentSpaceRocketViewController.swift */,
 				ECB899EC280744C7004B82A4 /* AllSpaceRocketsViewController.swift */,
+				ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,8 +230,17 @@
 				ECB899F728081DC7004B82A4 /* LeftRightLabelView.swift */,
 				ECB899D12806EF74004B82A4 /* LabelButtonView.swift */,
 				ECB899F92808223D004B82A4 /* TitleLabelView.swift */,
+				ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		ECF6C43F28086FC9008A79C4 /* LaunchRocket */ = {
+			isa = PBXGroup;
+			children = (
+				ECF6C4402808700D008A79C4 /* LaunchRocketCell.swift */,
+			);
+			path = LaunchRocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB89A00280866BB004B82A4 /* LaunchModel.swift in Sources */,
 				ECB899DF280713A5004B82A4 /* RequestResult.swift in Sources */,
 				ECB899BF28061761004B82A4 /* CurrentSpaceRocketViewController.swift in Sources */,
 				ECB899D52806F215004B82A4 /* LabelButtonViewModel.swift in Sources */,
@@ -344,13 +368,17 @@
 				ECB899BB28061761004B82A4 /* AppDelegate.swift in Sources */,
 				ECB899E62807163B004B82A4 /* Mass.swift in Sources */,
 				ECB899F828081DC7004B82A4 /* LeftRightLabelView.swift in Sources */,
+				ECB89A0228086745004B82A4 /* ResponseLaunches.swift in Sources */,
 				ECB899D7280705DB004B82A4 /* ParameterRocketCollection.swift in Sources */,
 				ECB899D22806EF74004B82A4 /* LabelButtonView.swift in Sources */,
 				ECB899F628081C1F004B82A4 /* CommonInformationRocketView.swift in Sources */,
 				ECB899D9280707B7004B82A4 /* ParameterRocketCell.swift in Sources */,
 				ECB899FE28083B94004B82A4 /* SpaceRocketStageInfoView.swift in Sources */,
+				ECF6C4412808700D008A79C4 /* LaunchRocketCell.swift in Sources */,
 				ECB899DC280710FA004B82A4 /* SpaceRocketService.swift in Sources */,
 				ECB899BD28061761004B82A4 /* SceneDelegate.swift in Sources */,
+				ECF6C44528088C0D008A79C4 /* CompositeImageView.swift in Sources */,
+				ECF6C44328087029008A79C4 /* LaunchesRocketViewController.swift in Sources */,
 				ECB899E8280716C3004B82A4 /* SpaceRocketStage.swift in Sources */,
 				ECB899FC28082866004B82A4 /* ExDouble.swift in Sources */,
 				ECB899D02806DC21004B82A4 /* SpaceRocketView.swift in Sources */,

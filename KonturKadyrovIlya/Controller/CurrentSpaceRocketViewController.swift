@@ -38,7 +38,23 @@ class CurrentSpaceRocketViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewLaunchesButtonAction()
         view.backgroundColor = .black
+    }
+    
+    private func setupViewLaunchesButtonAction() {
+        spaceRocketView.setupViewLaunchesButtonAction(action: { [weak self] in
+            guard let self = self else { return }
+            let launchesRocketViewController = LaunchesRocketViewController(rocketId: self.spaceRocketModel.id,
+                                                                            rocketName: self.spaceRocketModel.name)
+            self.navigationController?.pushViewController(launchesRocketViewController, animated: true)
+        })
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }
 
