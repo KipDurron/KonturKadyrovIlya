@@ -14,7 +14,7 @@ class CurrentSpaceRocketViewController: UIViewController {
         return spaceRocketView
     }()
     
-    var spaceRocketModel: SpaceRocketModel
+    private var spaceRocketModel: SpaceRocketModel
     private var indexPage: Int
     
     override func loadView() {
@@ -38,6 +38,7 @@ class CurrentSpaceRocketViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
     }
 }
 

@@ -28,6 +28,11 @@
 		ECB899ED280744C7004B82A4 /* AllSpaceRocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899EC280744C7004B82A4 /* AllSpaceRocketsViewController.swift */; };
 		ECB899F02807589D004B82A4 /* ExUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899EF2807589D004B82A4 /* ExUIImage.swift */; };
 		ECB899F228076360004B82A4 /* ExInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899F128076360004B82A4 /* ExInt.swift */; };
+		ECB899F628081C1F004B82A4 /* CommonInformationRocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899F528081C1F004B82A4 /* CommonInformationRocketView.swift */; };
+		ECB899F828081DC7004B82A4 /* LeftRightLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899F728081DC7004B82A4 /* LeftRightLabelView.swift */; };
+		ECB899FA2808223D004B82A4 /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899F92808223D004B82A4 /* TitleLabelView.swift */; };
+		ECB899FC28082866004B82A4 /* ExDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FB28082866004B82A4 /* ExDouble.swift */; };
+		ECB899FE28083B94004B82A4 /* SpaceRocketStageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FD28083B94004B82A4 /* SpaceRocketStageInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +60,11 @@
 		ECB899EC280744C7004B82A4 /* AllSpaceRocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSpaceRocketsViewController.swift; sourceTree = "<group>"; };
 		ECB899EF2807589D004B82A4 /* ExUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExUIImage.swift; sourceTree = "<group>"; };
 		ECB899F128076360004B82A4 /* ExInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExInt.swift; sourceTree = "<group>"; };
+		ECB899F528081C1F004B82A4 /* CommonInformationRocketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonInformationRocketView.swift; sourceTree = "<group>"; };
+		ECB899F728081DC7004B82A4 /* LeftRightLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftRightLabelView.swift; sourceTree = "<group>"; };
+		ECB899F92808223D004B82A4 /* TitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
+		ECB899FB28082866004B82A4 /* ExDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDouble.swift; sourceTree = "<group>"; };
+		ECB899FD28083B94004B82A4 /* SpaceRocketStageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRocketStageInfoView.swift; sourceTree = "<group>"; };
 		FF4DC75BB1EEC9E5D5B2F6D8 /* Pods-KonturKadyrovIlya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonturKadyrovIlya.release.xcconfig"; path = "Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,10 +137,8 @@
 		ECB899CE2806DBF7004B82A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ECB899CF2806DC21004B82A4 /* SpaceRocketView.swift */,
-				ECB899D12806EF74004B82A4 /* LabelButtonView.swift */,
-				ECB899D6280705DB004B82A4 /* ParameterRocketCollection.swift */,
-				ECB899D8280707B7004B82A4 /* ParameterRocketCell.swift */,
+				ECB899F428081BB9004B82A4 /* Common */,
+				ECB899F328081BA6004B82A4 /* SpaceRocket */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,8 +193,31 @@
 			children = (
 				ECB899EF2807589D004B82A4 /* ExUIImage.swift */,
 				ECB899F128076360004B82A4 /* ExInt.swift */,
+				ECB899FB28082866004B82A4 /* ExDouble.swift */,
 			);
 			path = Extention;
+			sourceTree = "<group>";
+		};
+		ECB899F328081BA6004B82A4 /* SpaceRocket */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899CF2806DC21004B82A4 /* SpaceRocketView.swift */,
+				ECB899D6280705DB004B82A4 /* ParameterRocketCollection.swift */,
+				ECB899D8280707B7004B82A4 /* ParameterRocketCell.swift */,
+				ECB899F528081C1F004B82A4 /* CommonInformationRocketView.swift */,
+				ECB899FD28083B94004B82A4 /* SpaceRocketStageInfoView.swift */,
+			);
+			path = SpaceRocket;
+			sourceTree = "<group>";
+		};
+		ECB899F428081BB9004B82A4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				ECB899F728081DC7004B82A4 /* LeftRightLabelView.swift */,
+				ECB899D12806EF74004B82A4 /* LabelButtonView.swift */,
+				ECB899F92808223D004B82A4 /* TitleLabelView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,15 +343,20 @@
 				ECB899ED280744C7004B82A4 /* AllSpaceRocketsViewController.swift in Sources */,
 				ECB899BB28061761004B82A4 /* AppDelegate.swift in Sources */,
 				ECB899E62807163B004B82A4 /* Mass.swift in Sources */,
+				ECB899F828081DC7004B82A4 /* LeftRightLabelView.swift in Sources */,
 				ECB899D7280705DB004B82A4 /* ParameterRocketCollection.swift in Sources */,
 				ECB899D22806EF74004B82A4 /* LabelButtonView.swift in Sources */,
+				ECB899F628081C1F004B82A4 /* CommonInformationRocketView.swift in Sources */,
 				ECB899D9280707B7004B82A4 /* ParameterRocketCell.swift in Sources */,
+				ECB899FE28083B94004B82A4 /* SpaceRocketStageInfoView.swift in Sources */,
 				ECB899DC280710FA004B82A4 /* SpaceRocketService.swift in Sources */,
 				ECB899BD28061761004B82A4 /* SceneDelegate.swift in Sources */,
 				ECB899E8280716C3004B82A4 /* SpaceRocketStage.swift in Sources */,
+				ECB899FC28082866004B82A4 /* ExDouble.swift in Sources */,
 				ECB899D02806DC21004B82A4 /* SpaceRocketView.swift in Sources */,
 				ECB899F228076360004B82A4 /* ExInt.swift in Sources */,
 				ECB899E4280715A3004B82A4 /* LengthType.swift in Sources */,
+				ECB899FA2808223D004B82A4 /* TitleLabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

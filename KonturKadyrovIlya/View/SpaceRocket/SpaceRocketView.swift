@@ -25,7 +25,7 @@ class SpaceRocketView: UIView {
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = .lightGray
         return imageView
     }()
     
@@ -50,6 +50,14 @@ class SpaceRocketView: UIView {
         return parameterRocketCollection
     }()
     
+    let commonInformationRocketView: CommonInformationRocketView = {
+        let commonInformationRocketView = CommonInformationRocketView()
+        commonInformationRocketView.translatesAutoresizingMaskIntoConstraints = false
+        return commonInformationRocketView
+    }()
+    
+    
+    
     init() {
         super.init(frame: .zero)
         setupUI()
@@ -66,6 +74,11 @@ class SpaceRocketView: UIView {
                                                            diameter: model.diameter,
                                                            mass: model.mass,
                                                            payloadWeights: model.payloadWeights)
+        commonInformationRocketView.updateView(firstFlight: model.firstFlight,
+                                               country: model.country,
+                                               costPerLaunch: model.costPerLaunch,
+                                               firstStage: model.firstStage,
+                                               secondStage: model.secondStage)
     }
     
     private func updateTitleView(name: String) {
@@ -73,7 +86,7 @@ class SpaceRocketView: UIView {
         paragraphStyle.maximumLineHeight = Constants.titleMaxLineHeight
         paragraphStyle.minimumLineHeight = Constants.titleMaxLineHeight
         let labelAttrString = NSAttributedString(string: name,
-                                                 attributes: [.font:  UIFont(name: Constants.titleNameFont, size: Constants.titleFontSize) ?? .systemFont(ofSize: Constants.titleFontSize),
+                                                 attributes: [.font:  UIFont(name: Constants.titleNameFont, size: Constants.titleFontSize) ?? .boldSystemFont(ofSize: Constants.titleFontSize),
                                                               .paragraphStyle: paragraphStyle,
                                                               .foregroundColor: UIColor.white])
         
@@ -125,6 +138,7 @@ class SpaceRocketView: UIView {
         
         contentView.addSubview(titleView)
         contentView.addSubview(parameterCollectionView)
+        contentView.addSubview(commonInformationRocketView)
         
         NSLayoutConstraint.activate([
             titleView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.titleViewTopInset),
@@ -135,11 +149,16 @@ class SpaceRocketView: UIView {
             parameterCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             parameterCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             parameterCollectionView.heightAnchor.constraint(equalToConstant: Constants.sizeCollectionParameter),
-            parameterCollectionView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -100)
+            
+            commonInformationRocketView.topAnchor.constraint(equalTo: parameterCollectionView.bottomAnchor,
+                                             constant: Constants.commonInformationTopInset),
+            commonInformationRocketView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.commonInformationLeftRightInset),
+            commonInformationRocketView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.commonInformationLeftRightInset),
+            commonInformationRocketView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+            
             
             
         ])
-        
     }
     
 }
@@ -167,5 +186,8 @@ private extension SpaceRocketView {
         static let heightWrapperViewPriority: Float = 250
         
         static let systemNameSettingImage = "gearshape"
+        
+        static let commonInformationTopInset: CGFloat = 40
+        static let commonInformationLeftRightInset: CGFloat = 32
     }
 }

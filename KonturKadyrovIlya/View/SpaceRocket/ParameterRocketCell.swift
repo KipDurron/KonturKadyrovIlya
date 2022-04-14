@@ -58,7 +58,7 @@ class ParameterRocketCell: UICollectionViewCell {
         paragraphNumberStyle.maximumLineHeight = Constants.maximumLineHeightNumber
         paragraphNumberStyle.minimumLineHeight = Constants.maximumLineHeightNumber
         let numberAttrString = NSAttributedString(string: data.number,
-                                                 attributes: [.font:  UIFont(name: "LabGrotesque-Bold", size: Constants.sizeNumberFont) ?? .systemFont(ofSize: Constants.sizeNumberFont),
+                                                 attributes: [.font:  UIFont(name: "LabGrotesque-Bold", size: Constants.sizeNumberFont) ?? .boldSystemFont(ofSize: Constants.sizeNumberFont),
                                                               .paragraphStyle: paragraphNumberStyle,
                                                               .foregroundColor: UIColor.white])
         numberLabel.attributedText = numberAttrString
@@ -71,7 +71,6 @@ class ParameterRocketCell: UICollectionViewCell {
                                                               .paragraphStyle: paragraphDecriptionStyle,
                                                               .foregroundColor: Constants.descriptionColor])
         descriptionLabel.attributedText = descriptionAttrString
-        
     }
     
 }
