@@ -36,6 +36,10 @@
 		ECB89A00280866BB004B82A4 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FF280866BB004B82A4 /* LaunchModel.swift */; };
 		ECB89A0228086745004B82A4 /* ResponseLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB89A0128086745004B82A4 /* ResponseLaunches.swift */; };
 		ECD7BDDF2809657600ED88FE /* SettingParametersRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BDDE2809657600ED88FE /* SettingParametersRocketViewController.swift */; };
+		ECD7BDE228099DAF00ED88FE /* ParameterSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BDE128099DAF00ED88FE /* ParameterSettingCell.swift */; };
+		ECD7BDE42809A85C00ED88FE /* MFtEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BDE32809A85C00ED88FE /* MFtEnum.swift */; };
+		ECD7BDE62809A8A100ED88FE /* KgLbEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BDE52809A8A100ED88FE /* KgLbEnum.swift */; };
+		ECD7BDE82809AC2500ED88FE /* ParameterSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BDE72809AC2500ED88FE /* ParameterSettingViewModel.swift */; };
 		ECF6C4412808700D008A79C4 /* LaunchRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C4402808700D008A79C4 /* LaunchRocketCell.swift */; };
 		ECF6C44328087029008A79C4 /* LaunchesRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */; };
 		ECF6C44528088C0D008A79C4 /* CompositeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */; };
@@ -74,6 +78,10 @@
 		ECB899FF280866BB004B82A4 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
 		ECB89A0128086745004B82A4 /* ResponseLaunches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseLaunches.swift; sourceTree = "<group>"; };
 		ECD7BDDE2809657600ED88FE /* SettingParametersRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingParametersRocketViewController.swift; sourceTree = "<group>"; };
+		ECD7BDE128099DAF00ED88FE /* ParameterSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterSettingCell.swift; sourceTree = "<group>"; };
+		ECD7BDE32809A85C00ED88FE /* MFtEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFtEnum.swift; sourceTree = "<group>"; };
+		ECD7BDE52809A8A100ED88FE /* KgLbEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KgLbEnum.swift; sourceTree = "<group>"; };
+		ECD7BDE72809AC2500ED88FE /* ParameterSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterSettingViewModel.swift; sourceTree = "<group>"; };
 		ECF6C4402808700D008A79C4 /* LaunchRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRocketCell.swift; sourceTree = "<group>"; };
 		ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesRocketViewController.swift; sourceTree = "<group>"; };
 		ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeImageView.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 		ECB899CE2806DBF7004B82A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7BDE028099D8F00ED88FE /* Setting */,
 				ECF6C43F28086FC9008A79C4 /* LaunchRocket */,
 				ECB899F428081BB9004B82A4 /* Common */,
 				ECB899F328081BA6004B82A4 /* SpaceRocket */,
@@ -160,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				ECB899D42806F215004B82A4 /* LabelButtonViewModel.swift */,
+				ECD7BDE72809AC2500ED88FE /* ParameterSettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -176,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				ECB899DE280713A5004B82A4 /* RequestResult.swift */,
+				ECD7BDE32809A85C00ED88FE /* MFtEnum.swift */,
+				ECD7BDE52809A8A100ED88FE /* KgLbEnum.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,6 +248,14 @@
 				ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		ECD7BDE028099D8F00ED88FE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7BDE128099DAF00ED88FE /* ParameterSettingCell.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		ECF6C43F28086FC9008A79C4 /* LaunchRocket */ = {
@@ -364,6 +384,7 @@
 				ECB899DF280713A5004B82A4 /* RequestResult.swift in Sources */,
 				ECB899BF28061761004B82A4 /* CurrentSpaceRocketViewController.swift in Sources */,
 				ECB899D52806F215004B82A4 /* LabelButtonViewModel.swift in Sources */,
+				ECD7BDE82809AC2500ED88FE /* ParameterSettingViewModel.swift in Sources */,
 				ECB899E228071507004B82A4 /* SpaceRocketModel.swift in Sources */,
 				ECB899EA2807180C004B82A4 /* PayloadWeight.swift in Sources */,
 				ECB899F02807589D004B82A4 /* ExUIImage.swift in Sources */,
@@ -379,6 +400,8 @@
 				ECB899FE28083B94004B82A4 /* SpaceRocketStageInfoView.swift in Sources */,
 				ECF6C4412808700D008A79C4 /* LaunchRocketCell.swift in Sources */,
 				ECB899DC280710FA004B82A4 /* SpaceRocketService.swift in Sources */,
+				ECD7BDE42809A85C00ED88FE /* MFtEnum.swift in Sources */,
+				ECD7BDE228099DAF00ED88FE /* ParameterSettingCell.swift in Sources */,
 				ECB899BD28061761004B82A4 /* SceneDelegate.swift in Sources */,
 				ECF6C44528088C0D008A79C4 /* CompositeImageView.swift in Sources */,
 				ECF6C44328087029008A79C4 /* LaunchesRocketViewController.swift in Sources */,
@@ -388,6 +411,7 @@
 				ECB899F228076360004B82A4 /* ExInt.swift in Sources */,
 				ECB899E4280715A3004B82A4 /* LengthType.swift in Sources */,
 				ECD7BDDF2809657600ED88FE /* SettingParametersRocketViewController.swift in Sources */,
+				ECD7BDE62809A8A100ED88FE /* KgLbEnum.swift in Sources */,
 				ECB899FA2808223D004B82A4 /* TitleLabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -80,6 +80,8 @@ class LaunchesRocketViewController: UIViewController {
     }
 }
 
+//MARK: - Collection extention
+
 extension LaunchesRocketViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         launches.count
@@ -87,10 +89,10 @@ extension LaunchesRocketViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(LaunchRocketCell.self)", for: indexPath) as! LaunchRocketCell
-        let cuurentLaunch = launches[indexPath.item]
-        cell.setData(name: cuurentLaunch.name,
-                     dateUnix: cuurentLaunch.dateUnix,
-                     success: cuurentLaunch.success)
+        let curentLaunch = launches[indexPath.item]
+        cell.setData(name: curentLaunch.name,
+                     dateUnix: curentLaunch.dateUnix,
+                     success: curentLaunch.success)
         return cell
     }
 }

@@ -61,7 +61,7 @@ class LeftRightLabelView: UIView {
 
 private extension LeftRightLabelView {
     enum Constants {
-        static let minRightInsetLabel: CGFloat = 19
+        static let minRightInsetLabel: CGFloat = 10
         static let multiplierWidth: CGFloat = 0.5
         static let maxHeightRightlabel: CGFloat = 50
     }
