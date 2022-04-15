@@ -1,0 +1,6 @@
+framework module Pods_KonturKadyrovIlya {
+  umbrella header "Pods-KonturKadyrovIlya-umbrella.h"
+
+  export *
+  module * { export * }
+}
