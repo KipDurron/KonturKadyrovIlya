@@ -120,6 +120,9 @@ class SettingParametersRocketViewController: UIViewController {
     
     @objc private func closeButtonAction() {
         dismiss(animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
         actionWhenDismiss?()
     }
 }
