@@ -24,7 +24,6 @@ class CurrentSpaceRocketViewController: UIViewController {
     init(with spaceRocketModel: SpaceRocketModel, indexPage: Int) {
         self.spaceRocketModel = spaceRocketModel
         self.indexPage = indexPage
-        spaceRocketView.updateData(model: spaceRocketModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,26 +34,32 @@ class CurrentSpaceRocketViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewLaunchesButtonAction()
+        let launchesButtonAction = getLaunchesButtonAction()
+        let settingButtonAction = getSettingButtonAction()
+        spaceRocketView.updateData(model: spaceRocketModel,
+                                   launchesButtonAction: launchesButtonAction,
+                                   settingButtonAction: settingButtonAction)
         view.backgroundColor = .black
     }
     
-    private func setupViewLaunchesButtonAction() {
-        spaceRocketView.setupViewLaunchesButtonAction(action: { [weak self] in
+    private func getLaunchesButtonAction() -> (()->Void) {
+        return { [weak self] in
             guard let self = self else { return }
             let launchesRocketViewController = LaunchesRocketViewController(rocketId: self.spaceRocketModel.id,
                                                                             rocketName: self.spaceRocketModel.name)
             self.navigationController?.pushViewController(launchesRocketViewController, animated: true)
-        })
+        }
     }
     
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
+    private func getSettingButtonAction() -> (()->Void) {
+        return { [weak self] in
+            guard let self = self else { return }
+            let settingParametersRocketViewController = SettingParametersRocketViewController()
+            self.present(settingParametersRocketViewController, animated: true)
+        }
     }
 }
 

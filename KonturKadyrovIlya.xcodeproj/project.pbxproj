@@ -35,6 +35,7 @@
 		ECB899FE28083B94004B82A4 /* SpaceRocketStageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FD28083B94004B82A4 /* SpaceRocketStageInfoView.swift */; };
 		ECB89A00280866BB004B82A4 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB899FF280866BB004B82A4 /* LaunchModel.swift */; };
 		ECB89A0228086745004B82A4 /* ResponseLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB89A0128086745004B82A4 /* ResponseLaunches.swift */; };
+		ECD7BDDF2809657600ED88FE /* SettingParametersRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BDDE2809657600ED88FE /* SettingParametersRocketViewController.swift */; };
 		ECF6C4412808700D008A79C4 /* LaunchRocketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C4402808700D008A79C4 /* LaunchRocketCell.swift */; };
 		ECF6C44328087029008A79C4 /* LaunchesRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */; };
 		ECF6C44528088C0D008A79C4 /* CompositeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */; };
@@ -72,6 +73,7 @@
 		ECB899FD28083B94004B82A4 /* SpaceRocketStageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRocketStageInfoView.swift; sourceTree = "<group>"; };
 		ECB899FF280866BB004B82A4 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
 		ECB89A0128086745004B82A4 /* ResponseLaunches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseLaunches.swift; sourceTree = "<group>"; };
+		ECD7BDDE2809657600ED88FE /* SettingParametersRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingParametersRocketViewController.swift; sourceTree = "<group>"; };
 		ECF6C4402808700D008A79C4 /* LaunchRocketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRocketCell.swift; sourceTree = "<group>"; };
 		ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesRocketViewController.swift; sourceTree = "<group>"; };
 		ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeImageView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				ECB899BE28061761004B82A4 /* CurrentSpaceRocketViewController.swift */,
 				ECB899EC280744C7004B82A4 /* AllSpaceRocketsViewController.swift */,
 				ECF6C44228087029008A79C4 /* LaunchesRocketViewController.swift */,
+				ECD7BDDE2809657600ED88FE /* SettingParametersRocketViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				ECB899D02806DC21004B82A4 /* SpaceRocketView.swift in Sources */,
 				ECB899F228076360004B82A4 /* ExInt.swift in Sources */,
 				ECB899E4280715A3004B82A4 /* LengthType.swift in Sources */,
+				ECD7BDDF2809657600ED88FE /* SettingParametersRocketViewController.swift in Sources */,
 				ECB899FA2808223D004B82A4 /* TitleLabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -79,9 +79,12 @@ class SpaceRocketView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateData(model: SpaceRocketModel) {
+    func updateData(model: SpaceRocketModel,
+                    launchesButtonAction: (()->Void)? = nil,
+                    settingButtonAction: (()->Void)? = nil) {
+        viewLaunchesButtonAction = launchesButtonAction
         updateImageView(flickrImages: model.flickrImages)
-        updateTitleView(name: model.name)
+        updateTitleView(name: model.name, settingButtonAction: settingButtonAction)
         parameterCollectionView.updateCollectionParameters(height: model.height,
                                                            diameter: model.diameter,
                                                            mass: model.mass,
@@ -93,10 +96,6 @@ class SpaceRocketView: UIView {
                                                secondStage: model.secondStage)
     }
     
-    func setupViewLaunchesButtonAction(action: @escaping (()->Void)) {
-        viewLaunchesButtonAction = action
-    }
-    
     private func setupButton() {
         viewLaunchesButton.addTarget(self, action: #selector(viewLaunchesButtonActionCall), for: .touchUpInside)
     }
@@ -105,7 +104,7 @@ class SpaceRocketView: UIView {
         viewLaunchesButtonAction?()
     }
     
-    private func updateTitleView(name: String) {
+    private func updateTitleView(name: String, settingButtonAction: (()->Void)? = nil) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.maximumLineHeight = Constants.titleMaxLineHeight
         paragraphStyle.minimumLineHeight = Constants.titleMaxLineHeight
@@ -114,7 +113,7 @@ class SpaceRocketView: UIView {
                                                               .paragraphStyle: paragraphStyle,
                                                               .foregroundColor: UIColor.white])
         
-        let viewModel = LabelButtonViewModel(labelAttrString: labelAttrString, buttonImage: UIImage(systemName: Constants.systemNameSettingImage))
+        let viewModel = LabelButtonViewModel(labelAttrString: labelAttrString, buttonImage: UIImage(systemName: Constants.systemNameSettingImage), actionButton: settingButtonAction)
         titleView.viewModel = viewModel
     }
     

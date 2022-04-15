@@ -17,8 +17,12 @@ class AllSpaceRocketsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPageController()
         loadAllSpaceRockets()
         setupNavigationBar()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     private func setupNavigationBar() {
@@ -30,17 +34,12 @@ class AllSpaceRocketsViewController: UIViewController {
             .font: UIFont.boldSystemFont(ofSize: Constants.sizeFontTitle)
         ]
         
-        if #available(iOS 15.0, *) {
-            let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.backgroundColor = .black
-            navigationBarAppearance.titleTextAttributes = titleTextAttributes
-            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-        } else {
-            navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
-            navigationController?.navigationBar.barTintColor = .black
-        }
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = .black
+        navigationBarAppearance.titleTextAttributes = titleTextAttributes
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
     }
     
     private func loadAllSpaceRockets() {
@@ -49,17 +48,20 @@ class AllSpaceRocketsViewController: UIViewController {
             switch requestResult {
             case .complete(let models):
                 self.spaceRocketsList = models
-                self.setupPageController()
+                self.setStartPageController()
             case .error(let text):
                 print(text)
             }
         }
     }
     
+    private func setStartPageController() {
+        let initialVC = CurrentSpaceRocketViewController(with: self.spaceRocketsList[0], indexPage: 0)
+        pageController?.setViewControllers([initialVC], direction: .forward, animated: true, completion: nil)
+    }
+    
     private func setupPageController() {
-        
         let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        
         pageController.dataSource = self
         pageController.delegate = self
         self.addChild(pageController)
@@ -68,21 +70,14 @@ class AllSpaceRocketsViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             pageController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            pageController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            pageController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             pageController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             pageController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
         
-        
-        
-        let initialVC = CurrentSpaceRocketViewController(with: self.spaceRocketsList[0], indexPage: 0)
-        
-        pageController.setViewControllers([initialVC], direction: .forward, animated: true, completion: nil)
-        
         pageController.didMove(toParent: self)
         
         pageController.view.backgroundColor = Constants.pageControlColor
-        
         self.pageController = pageController
     }
 }
