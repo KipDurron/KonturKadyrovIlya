@@ -81,11 +81,11 @@ class CommonInformationRocketView: UIView {
             commonInfoStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             commonInfoStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            firstStageView.topAnchor.constraint(greaterThanOrEqualTo: commonInfoStackView.bottomAnchor, constant: Constants.firstStageTopInset),
+            firstStageView.topAnchor.constraint(equalTo: commonInfoStackView.bottomAnchor, constant: Constants.firstStageTopInset),
             firstStageView.leadingAnchor.constraint(equalTo: commonInfoStackView.leadingAnchor),
             firstStageView.trailingAnchor.constraint(equalTo: commonInfoStackView.trailingAnchor),
             
-            secondStageView.topAnchor.constraint(greaterThanOrEqualTo: firstStageView.bottomAnchor,
+            secondStageView.topAnchor.constraint(equalTo: firstStageView.bottomAnchor,
                                              constant: Constants.firstStageTopInset),
             secondStageView.leadingAnchor.constraint(equalTo: commonInfoStackView.leadingAnchor),
             secondStageView.trailingAnchor.constraint(equalTo: commonInfoStackView.trailingAnchor),

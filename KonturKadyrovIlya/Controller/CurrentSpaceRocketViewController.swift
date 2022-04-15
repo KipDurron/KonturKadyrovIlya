@@ -37,12 +37,16 @@ class CurrentSpaceRocketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
+        updateViewData()
+    }
+    
+    private func updateViewData() {
         let launchesButtonAction = getLaunchesButtonAction()
         let settingButtonAction = getSettingButtonAction()
         spaceRocketView.updateData(model: spaceRocketModel,
                                    launchesButtonAction: launchesButtonAction,
                                    settingButtonAction: settingButtonAction)
-        view.backgroundColor = .black
     }
     
     private func getLaunchesButtonAction() -> (()->Void) {

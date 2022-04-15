@@ -129,10 +129,10 @@ class SpaceRocketView: UIView {
         scrollView.addSubview(wrapperView)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
             wrapperView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             wrapperView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
@@ -153,8 +153,8 @@ class SpaceRocketView: UIView {
             imageView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor),
             imageView.heightAnchor.constraint(equalTo: wrapperView.widthAnchor, multiplier: Constants.multiplierHeightImage),
             
-            contentView.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor),
-            contentView.widthAnchor.constraint(equalTo: wrapperView.widthAnchor),
+            contentView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor),
             contentView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -Constants.topConstraintContentView),
             contentView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -Constants.bottomConstraintContentView)
         ])

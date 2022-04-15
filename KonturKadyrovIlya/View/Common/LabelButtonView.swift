@@ -39,8 +39,6 @@ class LabelButtonView: UIView {
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             rightButtonImageView.topAnchor.constraint(equalTo: label.topAnchor, constant: Constants.topInsetButton),
-            rightButtonImageView.leadingAnchor.constraint(greaterThanOrEqualTo: label.trailingAnchor,
-                                                 constant: Constants.leadingAnchorRightButton),
             rightButtonImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             rightButtonImageView.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: -Constants.bottomInsetButton),
             rightButtonImageView.widthAnchor.constraint(equalTo: rightButtonImageView.heightAnchor)
