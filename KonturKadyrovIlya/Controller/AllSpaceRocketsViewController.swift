@@ -11,6 +11,7 @@ class AllSpaceRocketsViewController: UIViewController {
     
     private let spaceRocketService = SpaceRocketService()
     private var spaceRocketsList = [SpaceRocketModel]()
+    private let parameterRealmService = ParameterRealmService()
     
     private var pageController: UIPageViewController?
     private var currentIndex: Int = 0
@@ -20,6 +21,7 @@ class AllSpaceRocketsViewController: UIViewController {
         setupPageController()
         loadAllSpaceRockets()
         setupNavigationBar()
+        parameterRealmService.createStartParameters()
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)

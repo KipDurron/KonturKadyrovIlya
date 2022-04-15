@@ -9,6 +9,8 @@ import UIKit
 
 class SettingParametersRocketViewController: UIViewController {
     
+    private let parameterRealmService = ParameterRealmService()
+    
     private var navigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar(frame: .zero)
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -26,14 +28,15 @@ class SettingParametersRocketViewController: UIViewController {
         return collectionView
     }()
     
-    private var parameters = [ParameterSettingViewModel]()
+    private var parameters = [ParameterRealmModel]()
+    
+    var actionWhenDismiss: (()->Void)?
     
     init() {
         super.init(nibName: nil, bundle: nil)
         parametersCollectionView.delegate = self
         parametersCollectionView.dataSource = self
         setupUI()
-        setupParameters()
     }
     
     required init?(coder: NSCoder) {
@@ -47,7 +50,7 @@ class SettingParametersRocketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        parametersCollectionView.reloadData()
+        fetchParameters()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -57,27 +60,9 @@ class SettingParametersRocketViewController: UIViewController {
         )
     }
     
-    private func setupParameters() {
-        let heightParameterViewModel = ParameterSettingViewModel(leftLabelText: Constants.heightParameterLabel,
-                                                                 leftTitleSegmentText: MFtEnum.m.rawValue,
-                                                                 rightTitleSegmentText: MFtEnum.ft.rawValue,
-                                                                 action: getChangeSegmentAction())
-        let diameterParameterViewModel = ParameterSettingViewModel(leftLabelText: Constants.diameterParameterLabel,
-                                                                   leftTitleSegmentText: MFtEnum.m.rawValue,
-                                                                   rightTitleSegmentText: MFtEnum.ft.rawValue,
-                                                                   action: getChangeSegmentAction())
-        let massParameterViewModel = ParameterSettingViewModel(leftLabelText: Constants.massParameterLabel,
-                                                               leftTitleSegmentText: KgLbEnum.kg.rawValue,
-                                                               rightTitleSegmentText: KgLbEnum.lb.rawValue,
-                                                               action: getChangeSegmentAction())
-        let payloadParameterViewModel = ParameterSettingViewModel(leftLabelText: Constants.payloadParameterLabel,
-                                                                  leftTitleSegmentText: KgLbEnum.kg.rawValue,
-                                                                  rightTitleSegmentText: KgLbEnum.lb.rawValue,
-                                                                  action: getChangeSegmentAction())
-        parameters.append(heightParameterViewModel)
-        parameters.append(diameterParameterViewModel)
-        parameters.append(massParameterViewModel)
-        parameters.append(payloadParameterViewModel)
+    private func fetchParameters() {
+        parameters = parameterRealmService.loadAll()
+        parametersCollectionView.reloadData()
     }
     
     private func setupUI() {
@@ -97,10 +82,11 @@ class SettingParametersRocketViewController: UIViewController {
         ])
     }
     
-    private func getChangeSegmentAction() -> (()->Void) {
-        return { [weak self] in
+    private func getChangeSegmentAction() -> ActionChangeSegmentType {
+        return { [weak self] (name, index) in
             guard let self = self else { return }
-            return
+            _ = self.parameterRealmService.updateSelectedSegmentIndex(name: name,
+                                                                      selectedSegmentIndex: index)
         }
     }
     
@@ -134,6 +120,7 @@ class SettingParametersRocketViewController: UIViewController {
     
     @objc private func closeButtonAction() {
         dismiss(animated: true)
+        actionWhenDismiss?()
     }
 }
 
@@ -146,7 +133,7 @@ extension SettingParametersRocketViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ParameterSettingCell.self)", for: indexPath) as! ParameterSettingCell
-        cell.viewModel = parameters[indexPath.item]
+        cell.viewModel = parameters[indexPath.item].buildViewModel(action: getChangeSegmentAction())
         return cell
     }
 }

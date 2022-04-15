@@ -9,6 +9,8 @@ import UIKit
 
 class CurrentSpaceRocketViewController: UIViewController {
     
+    private let parameterRealmService = ParameterRealmService()
+    
     private let spaceRocketView: SpaceRocketView = {
         let spaceRocketView = SpaceRocketView()
         return spaceRocketView
@@ -38,6 +40,9 @@ class CurrentSpaceRocketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         updateViewData()
     }
     
@@ -46,7 +51,8 @@ class CurrentSpaceRocketViewController: UIViewController {
         let settingButtonAction = getSettingButtonAction()
         spaceRocketView.updateData(model: spaceRocketModel,
                                    launchesButtonAction: launchesButtonAction,
-                                   settingButtonAction: settingButtonAction)
+                                   settingButtonAction: settingButtonAction,
+                                   settingParameters: parameterRealmService.loadAll())
     }
     
     private func getLaunchesButtonAction() -> (()->Void) {
@@ -62,6 +68,9 @@ class CurrentSpaceRocketViewController: UIViewController {
         return { [weak self] in
             guard let self = self else { return }
             let settingParametersRocketViewController = SettingParametersRocketViewController()
+            settingParametersRocketViewController.actionWhenDismiss = {
+                self.updateViewData()
+            }
             self.present(settingParametersRocketViewController, animated: true)
         }
     }

@@ -7,10 +7,9 @@
 
 import Foundation
 
+typealias ActionChangeSegmentType = ((String, Int)->Void)?
+
 struct ParameterSettingViewModel {
-    var leftLabelText: String
-    var leftTitleSegmentText: String
-    var rightTitleSegmentText: String
-    var selectedSegmentIndex: Int = 0
-    var action: (()->Void)? = nil
+    var model: ParameterRealmModel
+    var action: ActionChangeSegmentType = nil
 }

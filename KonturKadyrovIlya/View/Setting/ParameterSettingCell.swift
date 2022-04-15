@@ -68,6 +68,7 @@ class ParameterSettingCell: UICollectionViewCell {
         ]
         segmentedControl.setTitleTextAttributes(titleTextAttributesNormal, for: .normal)
         segmentedControl.setTitleTextAttributes(titleTextAttributesSelected, for: .selected)
+        segmentedControl.addTarget(self, action: #selector(changeSegmentedControlActionCall), for: .valueChanged)
     }
     
     
@@ -76,8 +77,9 @@ class ParameterSettingCell: UICollectionViewCell {
         leftLabel.attributedText = attrString
     }
     
-    @objc private func changeSegmentedControlActionCall() {
-        viewModel?.action?()
+    @objc private func changeSegmentedControlActionCall(sender: UISegmentedControl) {
+        guard let viewModel = viewModel else { return }
+        viewModel.action?(viewModel.model.name, sender.selectedSegmentIndex)
     }
     
     required init?(coder: NSCoder) {
@@ -86,10 +88,11 @@ class ParameterSettingCell: UICollectionViewCell {
     
     private func updateData() {
         guard let viewModel = viewModel else { return }
-
-        segmentedControl.setTitle(viewModel.leftTitleSegmentText, forSegmentAt: 0)
-        segmentedControl.setTitle(viewModel.rightTitleSegmentText, forSegmentAt: 1)
-        setupLeftLabel(text: viewModel.leftLabelText)
+        
+        segmentedControl.selectedSegmentIndex = viewModel.model.selectedSegmentIndex
+        segmentedControl.setTitle(viewModel.model.leftTitleSegmentText, forSegmentAt: 0)
+        segmentedControl.setTitle(viewModel.model.rightTitleSegmentText, forSegmentAt: 1)
+        setupLeftLabel(text: viewModel.model.labelName)
     }
     
 }

@@ -51,35 +51,87 @@ class ParameterRocketCollection: UIView {
     func updateCollectionParameters(height: LengthType,
                                     diameter: LengthType,
                                     mass: Mass,
-                                    payloadWeights: [PayloadWeight]) {
+                                    payloadWeights: [PayloadWeight],
+                                    settingParameters: [ParameterRealmModel]) {
+        
+        var parametersList = [ParameterRocketCollection.ParameterItem]()
+        
+        let heightParameterRealModel = settingParameters.filter { parameter in
+            parameter.name == ParameterNameEnum.height.rawValue
+        }.first
+        
+        parametersList.append(makeLengthParameter(lengthParameter: height, parameterRealModel: heightParameterRealModel, descriptionString: Constants.heightParameterLabel))
+        
+        let diameterParameterRealModel = settingParameters.filter { parameter in
+            parameter.name == ParameterNameEnum.diameter.rawValue
+        }.first
+        
+        parametersList.append(makeLengthParameter(lengthParameter: diameter, parameterRealModel: diameterParameterRealModel, descriptionString: Constants.diameterParameterLabel))
+        
+        let massParameterRealModel = settingParameters.filter { parameter in
+            parameter.name == ParameterNameEnum.mass.rawValue
+        }.first
+        
+        parametersList.append(makeMassParameter(massParameter: mass, parameterRealModel: massParameterRealModel, withCommas: true, descriptionString: Constants.massParameterLabel))
+        
         let loadLeo = payloadWeights.filter { payload in
             payload.id == Constants.payloadId
         }.first
-        var parametersList = [ParameterRocketCollection.ParameterItem]()
         
-        var heightResult = Constants.emptyString
-        if let height = height.feet {
-            heightResult = String(describing: height)
-        }
-        parametersList.append(.init(number: heightResult, descroptionText: Constants.heightParameterLabel + Constants.ftLabel))
+        let payloadParameterRealModel = settingParameters.filter { parameter in
+            parameter.name == ParameterNameEnum.payload.rawValue
+        }.first
         
-        var diameterResult = Constants.emptyString
-        if let diameter = diameter.feet {
-            diameterResult = String(describing: diameter)
-        }
-        
-        parametersList.append(.init(number: diameterResult, descroptionText: Constants.diameterParameterLabel + Constants.ftLabel))
-        
-        parametersList.append(.init(number: String(describing: mass.lb.withCommas()), descroptionText: Constants.massParameterLabel + Constants.lbLabel))
-        
-        var loadResult = Constants.emptyString
-        if let loadLeo = loadLeo {
-            loadResult = String(describing:loadLeo.lb.withCommas())
-        }
-        
-        parametersList.append(.init(number: loadResult, descroptionText: Constants.payloadParameterLabel + Constants.lbLabel))
+        parametersList.append(makeMassParameter(massParameter: loadLeo?.mass, parameterRealModel: payloadParameterRealModel, withCommas: true, descriptionString: Constants.payloadParameterLabel))
         
         updateWith(parameterArray: parametersList)
+    }
+    
+    private func makeMassParameter(massParameter: Mass?,
+                                   parameterRealModel: ParameterRealmModel?,
+                                   withCommas: Bool = false,
+                                   descriptionString: String = "") -> ParameterRocketCollection.ParameterItem {
+        var resultTypeParameter: String = ""
+        var massResult = Constants.dash
+        
+        if let massParameter = massParameter {
+            if let parameterRealModel = parameterRealModel {
+                resultTypeParameter = parameterRealModel.getTypeParameter()
+            }
+            if resultTypeParameter == KgLbEnum.kg.rawValue {
+                massResult = withCommas ? massParameter.kg.withCommas() : String(describing: massParameter.kg)
+            }
+            if resultTypeParameter == KgLbEnum.lb.rawValue {
+                massResult = withCommas ? massParameter.lb.withCommas() : String(describing: massParameter.lb)
+            }
+        }
+        return .init(number: massResult,
+                     descroptionText: descriptionString + Constants.comma + resultTypeParameter)
+    }
+    
+    private func makeLengthParameter(lengthParameter: LengthType,
+                                     parameterRealModel: ParameterRealmModel?,
+                                     descriptionString: String = "") -> ParameterRocketCollection.ParameterItem {
+        var resultTypeParameter: String = ""
+        var heightResult = Constants.dash
+        
+        if let parameterRealModel = parameterRealModel {
+            resultTypeParameter = parameterRealModel.getTypeParameter()
+        }
+        
+        if resultTypeParameter == MFtEnum.m.rawValue {
+            if let height = lengthParameter.feet {
+                heightResult = String(describing: height)
+            }
+        }
+        
+        if resultTypeParameter == MFtEnum.ft.rawValue {
+            if let height = lengthParameter.meters {
+                heightResult = String(describing: height)
+            }
+        }
+        return .init(number: heightResult,
+                     descroptionText: descriptionString + Constants.comma + resultTypeParameter)
     }
 }
 
@@ -128,8 +180,7 @@ private extension ParameterRocketCollection {
         static let diameterParameterLabel = "Диаметр"
         static let massParameterLabel = "Масса"
         static let payloadParameterLabel = "Нагрузка"
-        static let ftLabel = ", ft"
-        static let lbLabel = ", lb"
-        static let emptyString = "-"
+        static let dash = "-"
+        static let comma = ", "
     }
 }

@@ -81,14 +81,16 @@ class SpaceRocketView: UIView {
     
     func updateData(model: SpaceRocketModel,
                     launchesButtonAction: (()->Void)? = nil,
-                    settingButtonAction: (()->Void)? = nil) {
+                    settingButtonAction: (()->Void)? = nil,
+                    settingParameters: [ParameterRealmModel]) {
         viewLaunchesButtonAction = launchesButtonAction
         updateImageView(flickrImages: model.flickrImages)
         updateTitleView(name: model.name, settingButtonAction: settingButtonAction)
         parameterCollectionView.updateCollectionParameters(height: model.height,
                                                            diameter: model.diameter,
                                                            mass: model.mass,
-                                                           payloadWeights: model.payloadWeights)
+                                                           payloadWeights: model.payloadWeights,
+                                                           settingParameters: settingParameters)
         commonInformationRocketView.updateView(firstFlight: model.firstFlight,
                                                country: model.country,
                                                costPerLaunch: model.costPerLaunch,
