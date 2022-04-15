@@ -6,5 +6,6 @@ target 'KonturKadyrovIlya' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.5'
+  pod 'RealmSwift', '~>10'
 
 end
