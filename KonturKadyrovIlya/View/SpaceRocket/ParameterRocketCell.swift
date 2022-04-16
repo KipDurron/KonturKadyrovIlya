@@ -9,6 +9,8 @@ import UIKit
 
 class ParameterRocketCell: UICollectionViewCell {
     
+    //MARK: - Properties
+    
     private var numberLabel: UILabel = {
         let numberLabel = UILabel()
         numberLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +32,8 @@ class ParameterRocketCell: UICollectionViewCell {
         return stackView
     }()
     
+    //MARK: - life cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.layer.cornerRadius = Constants.cornerRadiusCell
@@ -38,15 +42,6 @@ class ParameterRocketCell: UICollectionViewCell {
         stackView.addArrangedSubview(numberLabel)
         stackView.addArrangedSubview(descriptionLabel)
         setupConstraints()
-    }
-    
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.stackTopInset),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.stackLeftInset),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.stackRightInset),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.stackBottomInset)
-        ])
     }
     
     required init?(coder: NSCoder) {
@@ -73,6 +68,16 @@ class ParameterRocketCell: UICollectionViewCell {
         descriptionLabel.attributedText = descriptionAttrString
     }
     
+    //MARK: - Private methods
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.stackTopInset),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.stackLeftInset),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.stackRightInset),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.stackBottomInset)
+        ])
+    }
 }
 
 //MARK: - Constants

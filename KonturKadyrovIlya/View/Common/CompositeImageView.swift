@@ -9,6 +9,8 @@ import UIKit
 
 class CompositeImageView: UIView {
     
+    //MARK: - Properties
+    
     private var baseImageView: UIImageView = {
         let baseImageView = UIImageView()
         baseImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +22,8 @@ class CompositeImageView: UIView {
         subImageView.translatesAutoresizingMaskIntoConstraints = false
         return subImageView
     }()
+    
+    //MARK: - life cycle
 
     init() {
         super.init(frame: .zero)
@@ -27,6 +31,17 @@ class CompositeImageView: UIView {
         baseImageView.addSubview(subImageView)
         setupConstraints()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setData(baseImage: UIImage?, subImage: UIImage?) {
+        baseImageView.image = baseImage
+        subImageView.image = subImage
+    }
+    
+    //MARK: - Private methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -41,16 +56,6 @@ class CompositeImageView: UIView {
             subImageView.bottomAnchor.constraint(equalTo: baseImageView.bottomAnchor),
         ])
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setData(baseImage: UIImage?, subImage: UIImage?) {
-        baseImageView.image = baseImage
-        subImageView.image = subImage
-    }
-
 }
 
 //MARK: - Constants

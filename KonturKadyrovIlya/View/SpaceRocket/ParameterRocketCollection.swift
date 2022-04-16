@@ -9,8 +9,8 @@ import UIKit
 
 class ParameterRocketCollection: UIView {
     
-    var parameterArray: [ParameterItem] = []
-    
+    //MARK: - Properties
+
     var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -22,6 +22,10 @@ class ParameterRocketCollection: UIView {
         return collectionView
     }()
     
+    var parameterArray: [ParameterItem] = []
+    
+    //MARK: - life cycle
+    
     init() {
         super.init(frame: .zero)
         addSubview(collectionView)
@@ -32,15 +36,6 @@ class ParameterRocketCollection: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
     }
     
     func updateWith(parameterArray: [ParameterRocketCollection.ParameterItem]) {
@@ -85,6 +80,17 @@ class ParameterRocketCollection: UIView {
         parametersList.append(makeMassParameter(massParameter: loadLeo?.mass, parameterRealModel: payloadParameterRealModel, withCommas: true, descriptionString: Constants.payloadParameterLabel))
         
         updateWith(parameterArray: parametersList)
+    }
+    
+    //MARK: - Private methods
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
     
     private func makeMassParameter(massParameter: Mass?,
@@ -134,6 +140,8 @@ class ParameterRocketCollection: UIView {
                      descroptionText: descriptionString + Constants.comma + resultTypeParameter)
     }
 }
+
+//MARK: - Collection extentions
 
 extension ParameterRocketCollection: UICollectionViewDataSource {
     

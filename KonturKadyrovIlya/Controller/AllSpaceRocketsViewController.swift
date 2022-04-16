@@ -9,6 +9,8 @@ import UIKit
 
 class AllSpaceRocketsViewController: UIViewController {
     
+    //MARK: - Properties
+    
     private var errorView: BaseErrorView = {
         var errorView = BaseErrorView()
         errorView.tag = Constants.tagOfErrorView
@@ -31,10 +33,12 @@ class AllSpaceRocketsViewController: UIViewController {
     private var pageController: UIPageViewController?
     private var currentIndex: Int = 0
     
+    //MARK: - life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSpinner()
         setupPageController()
+        setupSpinner()
         setupErrorViewModel()
         loadAllSpaceRockets()
         setupNavigationBar()
@@ -43,6 +47,8 @@ class AllSpaceRocketsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    //MARK: - Private methods
     
     private func setupNavigationBar() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: Constants.titleBackButtonNavBar, style: .plain, target: nil, action: nil)
@@ -105,10 +111,11 @@ class AllSpaceRocketsViewController: UIViewController {
     }
     
     private func setupSpinner() {
+        guard let pageController = pageController else { return }
         view.addSubview(spinner)
         NSLayoutConstraint.activate([
-            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            spinner.centerXAnchor.constraint(equalTo:  pageController.view.safeAreaLayoutGuide.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo:  pageController.view.safeAreaLayoutGuide.centerYAnchor)
         ])
     }
     
@@ -125,8 +132,10 @@ class AllSpaceRocketsViewController: UIViewController {
         errorView.viewModel = errorViewModel
         view.addSubview(errorView)
         NSLayoutConstraint.activate([
-            errorView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
-            errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            errorView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
     }
     

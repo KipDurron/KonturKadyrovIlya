@@ -8,6 +8,9 @@
 import UIKit
 
 class BaseErrorView: UIView {
+    
+    //MARK: - Properties
+    
     private var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +36,8 @@ class BaseErrorView: UIView {
         }
     }
     
+    //MARK: - life cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black
@@ -45,6 +50,8 @@ class BaseErrorView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Private methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

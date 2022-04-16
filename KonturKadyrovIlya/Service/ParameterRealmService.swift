@@ -10,8 +10,12 @@ import RealmSwift
 
 class ParameterRealmService {
     
+    //MARK: - Properties
+    
     let realmSetting = RealmSetting()
     let realm: Realm
+    
+    //MARK: - life cycle
     
     init() {
         realm = realmSetting.getRealm()

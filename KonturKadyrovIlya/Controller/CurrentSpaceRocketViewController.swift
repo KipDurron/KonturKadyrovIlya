@@ -9,15 +9,18 @@ import UIKit
 
 class CurrentSpaceRocketViewController: UIViewController {
     
-    private let parameterRealmService = ParameterRealmService()
+    //MARK: - Properties
     
     private let spaceRocketView: SpaceRocketView = {
         let spaceRocketView = SpaceRocketView()
         return spaceRocketView
     }()
     
+    private let parameterRealmService = ParameterRealmService()
     private var spaceRocketModel: SpaceRocketModel
     private var indexPage: Int
+    
+    //MARK: - life cycle
     
     override func loadView() {
         view = spaceRocketView
@@ -27,10 +30,6 @@ class CurrentSpaceRocketViewController: UIViewController {
         self.spaceRocketModel = spaceRocketModel
         self.indexPage = indexPage
         super.init(nibName: nil, bundle: nil)
-    }
-    
-    func getIndexPage() -> Int{
-        return indexPage
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +44,12 @@ class CurrentSpaceRocketViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateViewData()
     }
+    
+    func getIndexPage() -> Int{
+        return indexPage
+    }
+    
+    //MARK: - Private methods
     
     private func updateViewData() {
         let launchesButtonAction = getLaunchesButtonAction()

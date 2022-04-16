@@ -9,6 +9,8 @@ import UIKit
 
 class SpaceRocketView: UIView {
     
+    //MARK: - Properties
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +71,8 @@ class SpaceRocketView: UIView {
     
     private var viewLaunchesButtonAction: (()->Void)?
     
+    //MARK: - life cycle
+    
     init() {
         super.init(frame: .zero)
         setupUI()
@@ -97,6 +101,8 @@ class SpaceRocketView: UIView {
                                                firstStage: model.firstStage,
                                                secondStage: model.secondStage)
     }
+    
+    //MARK: - Private methods
     
     private func setupButton() {
         viewLaunchesButton.addTarget(self, action: #selector(viewLaunchesButtonActionCall), for: .touchUpInside)
@@ -171,19 +177,15 @@ class SpaceRocketView: UIView {
             titleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.titleViewRightInset),
             titleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.titleViewRightInset),
             
-            
             parameterCollectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: Constants.parameterCollectionViewTopInset),
             parameterCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             parameterCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             parameterCollectionView.heightAnchor.constraint(equalToConstant: Constants.sizeCollectionParameter),
             
-            
             commonInformationRocketView.topAnchor.constraint(equalTo: parameterCollectionView.bottomAnchor,
                                                              constant: Constants.commonInformationTopInset),
             commonInformationRocketView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.commonInformationLeftRightInset),
             commonInformationRocketView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.commonInformationLeftRightInset),
-            
-            
             
             viewLaunchesButton.heightAnchor.constraint(equalToConstant: Constants.viewLaunchesButtonHeight),
             viewLaunchesButton.topAnchor.constraint(equalTo: commonInformationRocketView.bottomAnchor,
@@ -192,11 +194,8 @@ class SpaceRocketView: UIView {
             viewLaunchesButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.viewLaunchesButtonLeftRightInset),
             viewLaunchesButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.viewLaunchesButtonBottomInset)
             
-            
-            
         ])
     }
-    
 }
 
 //MARK: - Constants

@@ -9,6 +9,8 @@ import UIKit
 
 class LaunchRocketCell: UICollectionViewCell {
     
+    //MARK: - Properties
+    
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Constants.dateLocal)
@@ -37,6 +39,8 @@ class LaunchRocketCell: UICollectionViewCell {
         return compositeImageView
     }()
     
+    //MARK: - life cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.layer.cornerRadius = Constants.cornerRadiusCell
@@ -56,6 +60,8 @@ class LaunchRocketCell: UICollectionViewCell {
         setupDateLabel(dateUnix:dateUnix)
         setupCompositeImageView(success: success)
     }
+    
+    //MARK: - Private methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

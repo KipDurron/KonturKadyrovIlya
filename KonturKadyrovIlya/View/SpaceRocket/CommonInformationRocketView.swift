@@ -9,6 +9,8 @@ import UIKit
 
 class CommonInformationRocketView: UIView {
     
+    //MARK: - Properties
+    
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Constants.dateLocal)
@@ -55,8 +57,7 @@ class CommonInformationRocketView: UIView {
         return secondStage
     }()
     
-    
-    
+    //MARK: - life cycle
     
     init() {
         super.init(frame: .zero)
@@ -66,6 +67,22 @@ class CommonInformationRocketView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateView(firstFlight: String,
+                    country: String,
+                    costPerLaunch: Int,
+                    firstStage: SpaceRocketStage,
+                    secondStage: SpaceRocketStage) {
+        setupFirstFlightInfo(firstFlight: firstFlight)
+        setupCountryInfo(country: country)
+        setupCostPerLaunchInfo(costPerLaunch: costPerLaunch)
+        
+        firstStageView.updateView(titleName: Constants.firstStageLabel, stage: firstStage)
+        secondStageView.updateView(titleName: Constants.secondStageLabel, stage: secondStage)
+        
+    }
+    
+    //MARK: - Private methods
     
     private func setupUI() {
         addSubview(commonInfoStackView)
@@ -93,21 +110,6 @@ class CommonInformationRocketView: UIView {
             
         ])
     }
-    
-    func updateView(firstFlight: String,
-                    country: String,
-                    costPerLaunch: Int,
-                    firstStage: SpaceRocketStage,
-                    secondStage: SpaceRocketStage) {
-        setupFirstFlightInfo(firstFlight: firstFlight)
-        setupCountryInfo(country: country)
-        setupCostPerLaunchInfo(costPerLaunch: costPerLaunch)
-        
-        firstStageView.updateView(titleName: Constants.firstStageLabel, stage: firstStage)
-        secondStageView.updateView(titleName: Constants.secondStageLabel, stage: secondStage)
-        
-    }
-    
     
     private func setupCostPerLaunchInfo(costPerLaunch: Int) {
         costPerLaunchView.setData(leftAttrString: setupCommonInfoLabelAttrString(string: Constants.costPerLaunchLabel), rightAttrString: setupCommonInfoValueAttrString(string: Constants.dollar + costPerLaunch.toShortedFormat()))

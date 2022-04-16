@@ -9,11 +9,15 @@ import RealmSwift
 
 class ParameterRealmModel: Object {
     
+    //MARK: - Properties
+    
     @objc dynamic var name: String
     @objc dynamic var labelName: String
     @objc dynamic var leftTitleSegmentText: String
     @objc dynamic var rightTitleSegmentText: String
     @objc dynamic var selectedSegmentIndex: Int
+    
+    //MARK: - life cycle
     
     init(name: String = "", labelName : String = "", leftTitleSegmentText: String = "", rightTitleSegmentText: String = "", selectedSegmentIndex: Int = 0) {
         self.name = name

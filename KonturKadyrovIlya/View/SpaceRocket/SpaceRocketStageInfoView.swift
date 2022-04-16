@@ -9,6 +9,8 @@ import UIKit
 
 class SpaceRocketStageInfoView: UIView {
     
+    //MARK: - Properties
+    
     private var titleLabel: TitleLabelView = {
         let titleLabel = TitleLabelView()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +43,8 @@ class SpaceRocketStageInfoView: UIView {
         return burnTimeView
     }()
     
+    //MARK: - life cycle
+    
     init() {
         super.init(frame: .zero)
         setupUI()
@@ -49,6 +53,19 @@ class SpaceRocketStageInfoView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateView(titleName: String, stage: SpaceRocketStage) {
+        titleLabel.updateData(titleText: titleName)
+        
+        setupCountEnginesInfo(count: stage.engines)
+        
+        setupFuelAmountInfo(fuelAmountTons: stage.fuelAmountTons)
+        
+        setupBurnTimeInfo(burnTimeSEC: stage.burnTimeSEC)
+        
+    }
+    
+    //MARK: - Private methods
     
     private func setupUI() {
         addSubview(titleLabel)
@@ -68,18 +85,6 @@ class SpaceRocketStageInfoView: UIView {
             contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
-    func updateView(titleName: String, stage: SpaceRocketStage) {
-        titleLabel.updateData(titleText: titleName)
-        
-        setupCountEnginesInfo(count: stage.engines)
-        
-        setupFuelAmountInfo(fuelAmountTons: stage.fuelAmountTons)
-        
-        setupBurnTimeInfo(burnTimeSEC: stage.burnTimeSEC)
-        
-    }
-    
     
     private func setupCountEnginesInfo(count: Int) {
         countEnginesView.setData(leftAttrString: setupCommonInfoLabelAttrString(string: Constants.countEnginesLabel), rightAttrString: setupCommonInfoValueAttrString(string: "\(count)"))

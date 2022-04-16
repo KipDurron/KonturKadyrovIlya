@@ -2,6 +2,8 @@ import UIKit
 
 class LabelButtonView: UIView {
 
+    //MARK: - Properties
+    
     private var label: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +24,8 @@ class LabelButtonView: UIView {
         }
     }
     
+    //MARK: - life cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(label)
@@ -31,6 +35,21 @@ class LabelButtonView: UIView {
         rightButtonImageView.isUserInteractionEnabled = true
         setupConstraints()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateData() {
+        guard let viewModel = viewModel else {return}
+        label.attributedText = viewModel.labelAttrString
+        if let buttonImage = viewModel.buttonImage {
+            rightButtonImageView.isHidden = false
+            rightButtonImageView.image = buttonImage
+        }
+    }
+    
+    //MARK: - Private methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -45,24 +64,9 @@ class LabelButtonView: UIView {
         ])
     }
     
-    func updateData() {
-        guard let viewModel = viewModel else {return}
-        label.attributedText = viewModel.labelAttrString
-        if let buttonImage = viewModel.buttonImage {
-            rightButtonImageView.isHidden = false
-            rightButtonImageView.image = buttonImage
-        }
-    }
-    
     @objc private func rightButtonAction() {
         viewModel?.actionButton?()
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
 }
 
 //MARK: - Constants

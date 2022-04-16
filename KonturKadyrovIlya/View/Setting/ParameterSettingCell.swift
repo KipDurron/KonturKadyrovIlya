@@ -9,6 +9,8 @@ import UIKit
 
 class ParameterSettingCell: UICollectionViewCell {
     
+    //MARK: - Properties
+    
     private var leftLabel: UILabel = {
         let leftLabel = UILabel()
         leftLabel.numberOfLines = 0
@@ -29,10 +31,18 @@ class ParameterSettingCell: UICollectionViewCell {
         }
     }
     
+    //MARK: - life cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Private methods
     
     private func setupUI() {
         addSubview(leftLabel)
@@ -80,10 +90,6 @@ class ParameterSettingCell: UICollectionViewCell {
     @objc private func changeSegmentedControlActionCall(sender: UISegmentedControl) {
         guard let viewModel = viewModel else { return }
         viewModel.action?(viewModel.model.name, sender.selectedSegmentIndex)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func updateData() {

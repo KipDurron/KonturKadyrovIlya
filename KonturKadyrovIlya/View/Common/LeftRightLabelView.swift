@@ -9,6 +9,8 @@ import UIKit
 
 class LeftRightLabelView: UIView {
     
+    //MARK: - Properties
+    
     private var leftLabel: UILabel = {
         let leftLabel = UILabel()
         leftLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -23,12 +25,25 @@ class LeftRightLabelView: UIView {
     }()
     
     
+    //MARK: - life cycle
+    
     init() {
         super.init(frame: .zero)
         addSubview(leftLabel)
         addSubview(rightLabel)
         setupConstraints()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setData(leftAttrString: NSAttributedString, rightAttrString: NSAttributedString) {
+        leftLabel.attributedText = leftAttrString
+        rightLabel.attributedText = rightAttrString
+    }
+    
+    //MARK: - Private methods
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -45,16 +60,6 @@ class LeftRightLabelView: UIView {
             rightLabel.heightAnchor.constraint(lessThanOrEqualToConstant: Constants.maxHeightRightlabel)
         ])
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setData(leftAttrString: NSAttributedString, rightAttrString: NSAttributedString) {
-        leftLabel.attributedText = leftAttrString
-        rightLabel.attributedText = rightAttrString
-    }
-    
 }
 
 //MARK: - Constants

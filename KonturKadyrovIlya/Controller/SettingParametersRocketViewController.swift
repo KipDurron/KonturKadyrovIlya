@@ -9,7 +9,7 @@ import UIKit
 
 class SettingParametersRocketViewController: UIViewController {
     
-    private let parameterRealmService = ParameterRealmService()
+    //MARK: - Properties
     
     private var navigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar(frame: .zero)
@@ -28,9 +28,11 @@ class SettingParametersRocketViewController: UIViewController {
         return collectionView
     }()
     
+    private let parameterRealmService = ParameterRealmService()
     private var parameters = [ParameterRealmModel]()
-    
     var actionWhenDismiss: (()->Void)?
+    
+    //MARK: - life cycle
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -53,12 +55,18 @@ class SettingParametersRocketViewController: UIViewController {
         fetchParameters()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        actionWhenDismiss?()
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(
             alongsideTransition: { _ in self.parametersCollectionView.collectionViewLayout.invalidateLayout() }
         )
     }
+    
+    //MARK: - Private methods
     
     private func fetchParameters() {
         parameters = parameterRealmService.loadAll()
@@ -121,13 +129,9 @@ class SettingParametersRocketViewController: UIViewController {
     @objc private func closeButtonAction() {
         dismiss(animated: true)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        actionWhenDismiss?()
-    }
 }
 
-//MARK: - Collection extention
+//MARK: - Collection extentions
 
 extension SettingParametersRocketViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

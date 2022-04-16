@@ -9,11 +9,15 @@ import UIKit
 
 class TitleLabelView: UIView {
     
+    //MARK: - Properties
+    
     private var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
+    
+    //MARK: - life cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,13 +25,8 @@ class TitleLabelView: UIView {
         setupConstraints()
     }
     
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func updateData(titleText: String) {
@@ -42,8 +41,15 @@ class TitleLabelView: UIView {
         titleLabel.attributedText = titleAttrString
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    //MARK: - Private methods
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
     }
 }
 

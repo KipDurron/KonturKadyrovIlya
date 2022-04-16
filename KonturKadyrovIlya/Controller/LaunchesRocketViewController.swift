@@ -9,7 +9,9 @@ import UIKit
 
 class LaunchesRocketViewController: UIViewController {
     
-    var collectionView: UICollectionView = {
+    //MARK: - Properties
+    
+    private var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -41,6 +43,8 @@ class LaunchesRocketViewController: UIViewController {
     private var launches = [LaunchModel]()
     private let spaceRocketService = SpaceRocketService()
     
+    //MARK: - life cycle
+    
     init(rocketId: String, rocketName: String) {
         self.rocketId = rocketId
         self.rocketName = rocketName
@@ -49,20 +53,6 @@ class LaunchesRocketViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    private func setupUI() {
-        view.addSubview(collectionView)
-        view.addSubview(spinner)
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
     }
     
     required init?(coder: NSCoder) {
@@ -79,6 +69,22 @@ class LaunchesRocketViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+    }
+    
+    //MARK: - Private methods
+    
+    private func setupUI() {
+        view.addSubview(collectionView)
+        view.addSubview(spinner)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func setupNavigationBar() {
@@ -116,8 +122,10 @@ class LaunchesRocketViewController: UIViewController {
         errorView.viewModel = errorViewModel
         view.addSubview(errorView)
         NSLayoutConstraint.activate([
-            errorView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
-            errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            errorView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
     }
     
@@ -128,7 +136,7 @@ class LaunchesRocketViewController: UIViewController {
     }
 }
 
-//MARK: - Collection extention
+//MARK: - Collection extentions
 
 extension LaunchesRocketViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
