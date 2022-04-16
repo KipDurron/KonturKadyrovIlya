@@ -67,15 +67,16 @@ class ParameterSettingCell: UICollectionViewCell {
     
     private func setupSegmentedControlView() {
         let titleTextAttributesNormal: [NSAttributedString.Key : Any] = [
-            .backgroundColor: Constants.normalBackgroundColorSegment,
             .foregroundColor: Constants.normalFontColorSegment,
             .font: UIFont.boldSystemFont(ofSize: Constants.normalFontSizeSegment)
         ]
         let titleTextAttributesSelected: [NSAttributedString.Key : Any] = [
-            .backgroundColor: UIColor.white,
             .foregroundColor: UIColor.black,
             .font: UIFont.boldSystemFont(ofSize: Constants.normalFontSizeSegment)
         ]
+        
+        segmentedControl.selectedSegmentTintColor = .white
+        segmentedControl.backgroundColor = Constants.normalBackgroundColorSegment
         segmentedControl.setTitleTextAttributes(titleTextAttributesNormal, for: .normal)
         segmentedControl.setTitleTextAttributes(titleTextAttributesSelected, for: .selected)
         segmentedControl.addTarget(self, action: #selector(changeSegmentedControlActionCall), for: .valueChanged)

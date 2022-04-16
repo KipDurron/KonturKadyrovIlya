@@ -23,7 +23,7 @@ class SettingParametersRocketViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(ParameterSettingCell.self, forCellWithReuseIdentifier: "\(ParameterSettingCell.self)")
-        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = .clear
         return collectionView
     }()

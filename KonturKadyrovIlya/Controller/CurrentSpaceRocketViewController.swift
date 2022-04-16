@@ -42,6 +42,7 @@ class CurrentSpaceRocketViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        spaceRocketView.scrollToTop()
         updateViewData()
     }
     

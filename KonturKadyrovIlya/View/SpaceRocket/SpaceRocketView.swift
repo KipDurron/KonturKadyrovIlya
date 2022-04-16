@@ -102,6 +102,10 @@ class SpaceRocketView: UIView {
                                                secondStage: model.secondStage)
     }
     
+    func scrollToTop() {
+        scrollView.setContentOffset(.zero, animated: false)
+    }
+    
     //MARK: - Private methods
     
     private func setupButton() {
