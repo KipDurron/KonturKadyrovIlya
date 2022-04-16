@@ -62,6 +62,6 @@ private extension SpaceRocketService {
         static let dateUnix = "date_unix"
         static let options = "options"
         static let select = "select"
-        static let timeoutRequest: Double = 20
+        static let timeoutRequest: Double = 15
     }
 }
