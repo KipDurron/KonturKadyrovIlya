@@ -20,6 +20,22 @@ class LaunchesRocketViewController: UIViewController {
         return collectionView
     }()
     
+    private var errorView: BaseErrorView = {
+        var errorView = BaseErrorView()
+        errorView.tag = Constants.tagOfErrorView
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        return errorView
+    }()
+    
+    private var spinner: UIActivityIndicatorView = {
+        var spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .white
+        spinner.hidesWhenStopped = true
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
+    private var errorViewModel = BaseErrorViewModel()
     private var rocketId: String
     private var rocketName: String
     private var launches = [LaunchModel]()
@@ -37,11 +53,15 @@ class LaunchesRocketViewController: UIViewController {
     
     private func setupUI() {
         view.addSubview(collectionView)
+        view.addSubview(spinner)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
@@ -51,6 +71,7 @@ class LaunchesRocketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupErrorViewModel()
         setupUI()
         loadLaunches()
     }
@@ -66,16 +87,43 @@ class LaunchesRocketViewController: UIViewController {
     }
     
     private func loadLaunches() {
+        removeErrorViewIfExist()
+        spinner.startAnimating()
         spaceRocketService.getLaunchesRocket(rocketId: rocketId) { [weak self] result in
             guard let self = self else { return }
+            self.spinner.stopAnimating()
             switch result {
             case .complete(let launches):
                 self.launches = launches
                 self.collectionView.reloadData()
             case .error(let text):
+                self.showError()
                 print(text)
             }
-            
+        }
+    }
+    
+    //MARK: - Setup Error view
+    
+    private func setupErrorViewModel() {
+        errorViewModel.refreshButtonAction = { [weak self] in
+            guard let self = self else { return }
+            self.loadLaunches()
+        }
+    }
+    
+    private func showError() {
+        errorView.viewModel = errorViewModel
+        view.addSubview(errorView)
+        NSLayoutConstraint.activate([
+            errorView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor),
+            errorView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+        ])
+    }
+    
+    private func removeErrorViewIfExist(){
+        if let errorView = view.viewWithTag(Constants.tagOfErrorView) {
+            errorView.removeFromSuperview()
         }
     }
 }
@@ -122,5 +170,6 @@ private extension LaunchesRocketViewController {
         static let insetForSectionRight: CGFloat = 0
         static let insetForSectionBottom: CGFloat = 50
         static let lineSpacing: CGFloat = 16
+        static let tagOfErrorView = 100
     }
 }

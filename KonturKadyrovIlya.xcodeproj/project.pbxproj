@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7BDF5D720CDEAC9FB1E89F74 /* Pods_KonturKadyrovIlya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E21861BFB712447738645B5 /* Pods_KonturKadyrovIlya.framework */; };
+		EC029FD3280ABB1D00870610 /* BaseErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC029FD2280ABB1D00870610 /* BaseErrorView.swift */; };
+		EC029FD5280ABB4600870610 /* BaseErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC029FD4280ABB4600870610 /* BaseErrorViewModel.swift */; };
 		EC3DB05D280A214800AE4104 /* RealmSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DB05C280A214800AE4104 /* RealmSetting.swift */; };
 		EC3DB069280A263400AE4104 /* ParameterRealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DB067280A263400AE4104 /* ParameterRealmService.swift */; };
 		EC3DB06A280A263400AE4104 /* ParameterRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DB068280A263400AE4104 /* ParameterRealmModel.swift */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		0E21861BFB712447738645B5 /* Pods_KonturKadyrovIlya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KonturKadyrovIlya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3579BAC234128039FC81264F /* Pods-KonturKadyrovIlya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonturKadyrovIlya.debug.xcconfig"; path = "Target Support Files/Pods-KonturKadyrovIlya/Pods-KonturKadyrovIlya.debug.xcconfig"; sourceTree = "<group>"; };
+		EC029FD2280ABB1D00870610 /* BaseErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseErrorView.swift; sourceTree = "<group>"; };
+		EC029FD4280ABB4600870610 /* BaseErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseErrorViewModel.swift; sourceTree = "<group>"; };
 		EC3DB05C280A214800AE4104 /* RealmSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSetting.swift; sourceTree = "<group>"; };
 		EC3DB05E280A217200AE4104 /* MFtEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFtEnum.swift; sourceTree = "<group>"; };
 		EC3DB067280A263400AE4104 /* ParameterRealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterRealmService.swift; sourceTree = "<group>"; };
@@ -134,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				EC3DB068280A263400AE4104 /* ParameterRealmModel.swift */,
-				EC3DB067280A263400AE4104 /* ParameterRealmService.swift */,
 				EC3DB05C280A214800AE4104 /* RealmSetting.swift */,
 			);
 			path = DB;
@@ -205,6 +208,7 @@
 			children = (
 				ECB899D42806F215004B82A4 /* LabelButtonViewModel.swift */,
 				ECD7BDE72809AC2500ED88FE /* ParameterSettingViewModel.swift */,
+				EC029FD4280ABB4600870610 /* BaseErrorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +216,7 @@
 		ECB899DA280710E3004B82A4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				EC3DB067280A263400AE4104 /* ParameterRealmService.swift */,
 				ECB899DB280710FA004B82A4 /* SpaceRocketService.swift */,
 			);
 			path = Service;
@@ -283,6 +288,7 @@
 				ECB899D12806EF74004B82A4 /* LabelButtonView.swift */,
 				ECB899F92808223D004B82A4 /* TitleLabelView.swift */,
 				ECF6C44428088C0D008A79C4 /* CompositeImageView.swift */,
+				EC029FD2280ABB1D00870610 /* BaseErrorView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 				ECB899E228071507004B82A4 /* SpaceRocketModel.swift in Sources */,
 				ECB899EA2807180C004B82A4 /* PayloadWeight.swift in Sources */,
 				ECB899F02807589D004B82A4 /* ExUIImage.swift in Sources */,
+				EC029FD3280ABB1D00870610 /* BaseErrorView.swift in Sources */,
 				ECB899ED280744C7004B82A4 /* AllSpaceRocketsViewController.swift in Sources */,
 				ECB899BB28061761004B82A4 /* AppDelegate.swift in Sources */,
 				ECB899E62807163B004B82A4 /* Mass.swift in Sources */,
@@ -436,6 +443,7 @@
 				ECB899D9280707B7004B82A4 /* ParameterRocketCell.swift in Sources */,
 				ECB899FE28083B94004B82A4 /* SpaceRocketStageInfoView.swift in Sources */,
 				ECD7BDF32809D8BF00ED88FE /* ParameterNameEnum.swift in Sources */,
+				EC029FD5280ABB4600870610 /* BaseErrorViewModel.swift in Sources */,
 				ECF6C4412808700D008A79C4 /* LaunchRocketCell.swift in Sources */,
 				ECB899DC280710FA004B82A4 /* SpaceRocketService.swift in Sources */,
 				EC3DB069280A263400AE4104 /* ParameterRealmService.swift in Sources */,

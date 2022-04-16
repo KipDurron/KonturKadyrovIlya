@@ -184,8 +184,5 @@ private extension SettingParametersRocketViewController {
         static let insetForSectionLeft: CGFloat = 0
         static let insetForSectionRight: CGFloat = 0
         static let insetForSectionBottom: CGFloat = 10
-        
-        
-        
     }
 }
