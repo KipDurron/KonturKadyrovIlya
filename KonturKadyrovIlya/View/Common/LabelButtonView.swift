@@ -56,6 +56,7 @@ class LabelButtonView: UIView {
             label.topAnchor.constraint(equalTo: topAnchor),
             label.leadingAnchor.constraint(equalTo: leadingAnchor),
             label.bottomAnchor.constraint(equalTo: bottomAnchor),
+            label.heightAnchor.constraint(lessThanOrEqualToConstant: Constants.maxHeight),
             
             rightButtonImageView.topAnchor.constraint(equalTo: label.topAnchor, constant: Constants.topInsetButton),
             rightButtonImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -77,5 +78,6 @@ private extension LabelButtonView {
         static let heightAnchorButton: CGFloat = 32
         static let topInsetButton: CGFloat = 2.5
         static let bottomInsetButton: CGFloat = 2.5
+        static let maxHeight: CGFloat = 32
     }
 }

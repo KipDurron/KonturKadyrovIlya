@@ -121,7 +121,7 @@ class SpaceRocketView: UIView {
                                                               .paragraphStyle: paragraphStyle,
                                                               .foregroundColor: UIColor.white])
         
-        let viewModel = LabelButtonViewModel(labelAttrString: labelAttrString, buttonImage: UIImage(systemName: Constants.systemNameSettingImage), actionButton: settingButtonAction)
+        let viewModel = LabelButtonViewModel(labelAttrString: labelAttrString, buttonImage: UIImage(named: Constants.systemNameSettingImage), actionButton: settingButtonAction)
         titleView.viewModel = viewModel
     }
     
