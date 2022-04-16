@@ -37,7 +37,6 @@ class LaunchesRocketViewController: UIViewController {
         return spinner
     }()
     
-    private var errorViewModel = BaseErrorViewModel()
     private var rocketId: String
     private var rocketName: String
     private var launches = [LaunchModel]()
@@ -61,7 +60,6 @@ class LaunchesRocketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupErrorViewModel()
         setupUI()
         loadLaunches()
     }
@@ -102,8 +100,12 @@ class LaunchesRocketViewController: UIViewController {
             case .complete(let launches):
                 self.launches = launches
                 self.collectionView.reloadData()
+                if launches.isEmpty {
+                    self.showError(viewModel: BaseErrorViewModel(title: Constants.emptyMessageText,
+                                                                 refreshButtonAction: self.getActionErrorView()))
+                }
             case .error(let text):
-                self.showError()
+                self.showError(viewModel: BaseErrorViewModel(refreshButtonAction: self.getActionErrorView()))
                 print(text)
             }
         }
@@ -111,15 +113,15 @@ class LaunchesRocketViewController: UIViewController {
     
     //MARK: - Setup Error view
     
-    private func setupErrorViewModel() {
-        errorViewModel.refreshButtonAction = { [weak self] in
+    private func getActionErrorView() -> (()->Void) {
+        return { [weak self] in
             guard let self = self else { return }
             self.loadLaunches()
         }
     }
     
-    private func showError() {
-        errorView.viewModel = errorViewModel
+    private func showError(viewModel: BaseErrorViewModel) {
+        errorView.viewModel = viewModel
         view.addSubview(errorView)
         NSLayoutConstraint.activate([
             errorView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -179,5 +181,6 @@ private extension LaunchesRocketViewController {
         static let insetForSectionBottom: CGFloat = 50
         static let lineSpacing: CGFloat = 16
         static let tagOfErrorView = 100
+        static let emptyMessageText = "Данных нет"
     }
 }

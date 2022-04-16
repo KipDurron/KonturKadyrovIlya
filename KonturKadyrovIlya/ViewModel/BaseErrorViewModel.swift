@@ -8,9 +8,17 @@
 import Foundation
 
 struct BaseErrorViewModel {
-    var title: String = Constants.title
-    var titleButton: String = Constants.titleButton
-    var refreshButtonAction: (() -> Void)? = nil
+    var title: String
+    var titleButton: String
+    var refreshButtonAction: (() -> Void)?
+    
+    internal init(title: String = Constants.title,
+                  titleButton: String = Constants.titleButton,
+                  refreshButtonAction: (() -> Void)? = nil) {
+        self.title = title
+        self.titleButton = titleButton
+        self.refreshButtonAction = refreshButtonAction
+    }
 }
 
 
