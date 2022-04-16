@@ -9,17 +9,19 @@ import Alamofire
 class SpaceRocketService {
     
     func getSpaceRockets(completion: @escaping (RequestResult<[SpaceRocketModel]>) -> Void) {
-        AF.request(Constants.pathAllSpaceRockets).responseDecodable(of: [SpaceRocketModel].self) {response in
-            if let error = response.error {
-                completion(RequestResult.error(text: error.errorDescription ?? Constants.defaultTextError))
-                return
+        AF.request(Constants.pathAllSpaceRockets){ $0.timeoutInterval = Constants.timeoutRequest }
+            .validate()
+            .responseDecodable(of: [SpaceRocketModel].self) {response in
+                if let error = response.error {
+                    completion(RequestResult.error(text: error.errorDescription ?? Constants.defaultTextError))
+                    return
+                }
+                do {
+                    try completion(RequestResult.complete(data: response.result.get()))
+                } catch(let error) {
+                    completion(RequestResult.error(text: "\(error)"))
+                }
             }
-            do {
-                try completion(RequestResult.complete(data: response.result.get()))
-            } catch(let error) {
-                completion(RequestResult.error(text: "\(error)"))
-            }
-        }
     }
     
     func getLaunchesRocket(rocketId: String, completion: @escaping (RequestResult<[LaunchModel]>) -> Void) {
@@ -27,8 +29,12 @@ class SpaceRocketService {
             Constants.query: [Constants.rocket: rocketId],
             Constants.options: [Constants.select: [Constants.name, Constants.success, Constants.dateUnix]]
         ]
-
-        AF.request(Constants.pathLaunchesRocket, method: .post, parameters: parameters).responseDecodable(of: ResponseLaunches.self) {response in
+        
+        AF.request(Constants.pathLaunchesRocket, method: .post, parameters: parameters) {
+            $0.timeoutInterval = Constants.timeoutRequest
+        }
+        .validate()
+        .responseDecodable(of: ResponseLaunches.self) {response in
             if let error = response.error {
                 completion(RequestResult.error(text: error.errorDescription ?? Constants.defaultTextError))
                 return
@@ -56,5 +62,6 @@ private extension SpaceRocketService {
         static let dateUnix = "date_unix"
         static let options = "options"
         static let select = "select"
+        static let timeoutRequest: Double = 20
     }
 }
