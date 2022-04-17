@@ -43,6 +43,7 @@ class AllSpaceRocketsViewController: UIViewController {
         loadAllSpaceRockets()
         setupNavigationBar()
         parameterRealmService.createStartParameters()
+        view.backgroundColor = .black
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
